@@ -5,6 +5,7 @@ import numpy as np
 from tqdm import tqdm
 from PIL import Image
 
+NOSEGS = os.getenv("NOSEGS") is not None
 
 def gray_to_color(image):
   def get_colormap():
@@ -22,7 +23,7 @@ if __name__ == "__main__":
   win = Window(1164, 874)
   for x in tqdm(sorted(os.listdir("imgs/"))):
     ii = np.array(Image.open("imgs/"+x))
-    if os.path.isfile("segz/"+x+".npz"):
+    if not NOSEGS and os.path.isfile("segz/"+x+".npz"):
       out = np.load("segz/"+x+".npz")['arr_0']
       segi = gray_to_color(out)
 
