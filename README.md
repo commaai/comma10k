@@ -23,3 +23,7 @@ It's 1,000 pngs of real driving captured from the comma fleet. It's MIT license,
  7 - my car
 </pre>
 
+## The Idea
+
+We want to add a data labeller in this repo, such that people can fix the committed labels and submit a pull request for the new ones.
+
