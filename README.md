@@ -10,7 +10,7 @@ It's 1,000 pngs of real driving captured from the comma fleet. It's MIT license,
  segs/ -- The outputs in probablity from our internal segnet (unreleased, too big)
 </pre>
 
-## Categories
+## Categories of internal segnet
 
 <pre>
  0 - empty
@@ -25,5 +25,5 @@ It's 1,000 pngs of real driving captured from the comma fleet. It's MIT license,
 
 ## The Idea
 
-We want to add a data labeller in this repo, such that people can fix the committed labels and submit a pull request for the new ones.
+We want to add a data labeller in this repo, such that people can fix the committed labels and submit a pull request for the new ones. Fun hackathon projects abound!
 
