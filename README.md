@@ -6,6 +6,10 @@ In honor of the comma.ai hackathon, which starts today (2/28/2020), we are relea
 
 It's 1,000 pngs of real driving captured from the comma fleet. It's MIT license, no academic only restrictions or anything. It also includes our internal segnet's guess at category.
 
+Run <pre>./viewer.py</pre> to see them with segnet overlay.
+
+## Directories
+
 <pre>
  imgs/ -- The png image files
  segz/ -- The outputs in argmax from our internal segnet
