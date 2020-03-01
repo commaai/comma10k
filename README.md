@@ -11,9 +11,10 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 ## Directories
 
 <pre>
- imgs/ -- The png image files
- segz/ -- The outputs in argmax from our internal segnet
- segs/ -- The outputs in probablity from our internal segnet (unreleased, too big)
+ imgs/  -- The png image files
+ masks/ -- PNG segmentation masks (update these!)
+ segz/  -- The outputs in argmax from our internal segnet
+ segs/  -- The outputs in probablity from our internal segnet (unreleased, too big)
 </pre>
 
 ## Categories of internal segnet
