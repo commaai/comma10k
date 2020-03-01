@@ -13,7 +13,7 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 <pre>
  imgs/  -- The png image files
  masks/ -- PNG segmentation masks (update these!)
- segz/  -- The outputs in argmax from our internal segnet
+ segz/  -- The outputs in argmax from our internal segnet (removed, fix viewer)
  segs/  -- The outputs in probablity from our internal segnet (unreleased, too big)
 </pre>
 
@@ -21,12 +21,12 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 
 <pre>
  0 - empty
- 1 - sky
+ 1 - sky (deprecated, now undrivable)
  2 - road
- 3 - road marks (drivable, split into lanes and non lane markings)
+ 3 - lane markings (drivable, right now includes some non lane markings, remove these!)
  4 - undrivable
- 5 - movable (split into vehicles and people/animals?)
- 6 - signs and traffic lights (add cones?, add toll booth bar?)
+ 5 - movable (split into vehicles and people/animals?, actually don't)
+ 6 - signs and traffic lights (deprecated, now undrivable)
  7 - my car
 </pre>
 
