@@ -6,7 +6,7 @@ IMAGES = glob.glob('imgs/*.png')
 config = json.load(open('config.json','r'))
 
 
-REPO_URL = 'https://github.com/nuwandavek/comma10k/'
+REPO_URL = 'https://github.com/commaai/comma10k/'
 
 # print(config)
 
