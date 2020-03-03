@@ -14,8 +14,8 @@ curl "https://api.scale.com/v1/task/segmentannotation" \
   -d labels="my car (hood, wipers, phone mount, etc...)" \
   -d labels="road" \
   -d labels="lane marking" \
-	-d labels="stop line" \
-	-d labels="crosswalk" \
+  -d labels="stop line" \
+  -d labels="crosswalk" \
   -d labels="other non lane / non stop line / non crosswalk road marking" \
   -d labels="sidewalk" \
   -d labels="building" \
