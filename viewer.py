@@ -53,5 +53,12 @@ if __name__ == "__main__":
       # blend
       ii = ii*0.8 + segi*0.2
     win.draw(ii)
-    win.getkey()
+    print(x)
+    kk = win.getkey()
+    if kk == ord("s"):
+      if not os.path.isfile("scale/response/%s" % x):
+        print("submitting to scaleapi")
+        os.system("scale/submit.sh "+x)
+      else:
+        print("ALREADY SUBMITTED!")
     
