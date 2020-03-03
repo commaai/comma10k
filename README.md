@@ -29,12 +29,6 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
  7 - #cc00ff - my car
 </pre>
 
-## The Idea
-
-We want to add a data labeller in this repo, such that people can fix the committed labels and submit a pull request for the new ones.
-
-Photoshop on the mask files is also a good choice.
-
 ## How can I help?
 
 Start labelling!
