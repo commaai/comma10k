@@ -23,7 +23,7 @@ def canon_mask(x):
     ok |= okk
 
   if not np.all(ok):
-    print(x+" HAS BAD COLORS")
+    print(x+" HAS %d pixels with BAD COLORS" % sum(np.logical_not(ok)))
     print(check[np.logical_not(ok)])
     """
     cva = np.array(list(colormap.values()))
