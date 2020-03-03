@@ -26,7 +26,7 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
  4 - #808060 - undrivable
  5 - #00ff66 - movable (split into vehicles and people/animals?, actually don't)
  6 -         - signs and traffic lights (deprecated, now undrivable)
- 7 - #cc00ff - my car
+ 7 - #cc00ff - my car (and anything inside it)
 </pre>
 
 ## How can I help?
