@@ -21,6 +21,15 @@ def gray_to_color(image):
   output = output.reshape((W, H, 3)).astype(np.uint8)
   return output
 
+def fix(im):
+  dat = np.array(im)
+  if im.mode == "P":
+    # palette image
+    pp = np.array(im.getpalette()).reshape((-1, 3))
+    sh = dat.shape
+    dat = pp[dat.flatten()].reshape(list(sh)+[3])
+  return dat
+
 
 if __name__ == "__main__":
   win = Window(1164, 874)
@@ -30,7 +39,7 @@ if __name__ == "__main__":
   for x in tqdm(lst):
     ii = np.array(Image.open("imgs/"+x))
     if not NOSEGS and os.path.isfile("masks/"+x):
-      segi = np.array(Image.open("masks/"+x))
+      segi = fix(Image.open("masks/"+x))
 
       # blend
       ii = ii*0.8 + segi*0.2
