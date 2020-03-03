@@ -29,6 +29,10 @@ def fix(im):
     pp = np.array(im.getpalette()).reshape((-1, 3)).astype(np.uint8)
     sh = dat.shape
     dat = pp[dat.flatten()].reshape(list(sh)+[3])
+
+  if dat.shape[2] != 3:
+    # remove alpha
+    dat = dat[:, :, 0:3]
   return dat
 
 

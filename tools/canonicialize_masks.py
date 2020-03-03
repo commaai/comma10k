@@ -12,9 +12,6 @@ colormap = get_colormap()
 
 def canon_mask(x):
   segi = fix(Image.open("masks/"+x))
-  if segi.shape[2] != 3:
-    print(x+" HAS BAD DIMENSION")
-    segi = segi[:, :, 0:3]
 
   #print(x, segi.shape, segi.dtype)
   check = segi.reshape(-1, 3)
