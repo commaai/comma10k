@@ -21,7 +21,7 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 <pre>
  0 - #ffffff - empty
  1 -         - sky (deprecated, now undrivable)
- 2 - #402020 - road (all parts, including shoulders)
+ 2 - #402020 - road (all parts, including shoulders, don't include driveways)
  3 - #ff0000 - lane markings (drivable, right now includes some non lane markings, remove these!)
  4 - #808060 - undrivable
  5 - #00ff66 - movable (split into vehicles and people/animals?, actually don't)
