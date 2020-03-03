@@ -11,8 +11,13 @@ curl "https://api.scale.com/v1/task/segmentannotation" \
   -d instruction="Please segment the image using the given labels." \
   -d attachment_type=image \
   -d attachment="https://raw.githubusercontent.com/commaai/comma10k/master/imgs/0999_e8e95b54ed6116a6_2018-10-22--11-26-21_3_339.png" \
-  -d labels="my car (hood, wipers, phone mount, etc...)" \
-  -d labels="road" \
+  -d labels="hood" \
+  -d labels="dashboard" \
+  -d labels="wipers" \
+  -d labels="phone mount" \
+  -d labels="other parts of my car, not hood, dashboard, wipers, phone mount" \
+  -d labels="road (anything drivable)" \
+  -d labels="curb" \
   -d labels="lane marking" \
   -d labels="stop line" \
   -d labels="crosswalk" \
