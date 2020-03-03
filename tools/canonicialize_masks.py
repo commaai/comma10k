@@ -24,6 +24,15 @@ def canon_mask(x):
   if not np.all(ok):
     print(x+" HAS BAD COLORS")
     print(check[np.logical_not(ok)])
+    """
+    cva = np.array(list(colormap.values()))
+    for i in np.argwhere(np.logical_not(ok)):
+      vv = np.mean((check[i] - cva)**2, axis=1)
+      col = np.argmin(vv)
+      #print(i, check[i], col, vv[col])
+      check[i] = cva[col]
+    segi = check.reshape(segi.shape)
+    """
 
   im = Image.fromarray(segi)
   im.save("masks/"+x)
