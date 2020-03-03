@@ -35,3 +35,22 @@ We want to add a data labeller in this repo, such that people can fix the commit
 
 Photoshop on the mask files is also a good choice.
 
+## How can I help?
+
+Start labelling!
+Either use the included comma pencil labeller
+OR
+Use an external image manipulation tool such as [GIMP](https://www.gimp.org/downloads/) (Free) or [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) (Paid)
+
+1. Fork this repository to your account using the "Fork" button in the top right
+2. Clone your fork, and use your labelling tool of choice to label some images
+3. Open a pull request to the official repository to submit your changes!
+
+### Using the built-in labeller (only works with MacOS/Linux)
+
+```
+pip install Flask
+./label.sh
+```
+
+Then open a browser window to http://localhost:5000/
