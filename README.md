@@ -1,6 +1,6 @@
 # comma10k
 
-In honor of the comma.ai hackathon, which starts today (2/28/2020), we are releasing the first 1,000 images of our internal comma10k dataset. After we clean up these labels, we'll release more.
+We are releasing the first 1,000 images of our internal comma10k dataset. After we clean up these labels, we'll release more. Learn more from [the Medium post](https://medium.com/@comma_ai/crowdsourced-segnet-you-can-help-2e683244a039).
 
 ![Alt](sample.jpg "First image from the dataset")
 
