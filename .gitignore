@@ -1,3 +1,4 @@
 .*.swp
+.*.swo
 segs/
 __pycache__
