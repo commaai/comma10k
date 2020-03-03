@@ -36,6 +36,14 @@ if __name__ == "__main__":
   lst = sorted(os.listdir("imgs/"))
   if len(sys.argv) > 1:
     lst = list(filter(lambda x: x.startswith(("%04d" % int(sys.argv[1]))), lst))
+
+  if os.getenv("ENTSORT") is not None:
+    szz = []
+    for x in lst:
+      sz = os.stat("segs/"+x+".npz").st_size
+      szz.append((sz, x))
+    lst = [x[1] for x in sorted(szz, reverse=True)]
+
   for x in tqdm(lst):
     ii = np.array(Image.open("imgs/"+x))
     if not NOSEGS and os.path.isfile("masks/"+x):
