@@ -1,6 +1,12 @@
 [{
   "classes" : [
     {
+      "name" : "Empty",
+      "id" : 0,
+      "color" : "#ffffff",
+      "rgb" : [255,255,255]
+    },
+    {
       "name" : "Road",
       "id" : 1,
       "color" : "#402020",
@@ -26,7 +32,7 @@
     },
     {
       "name" : "Ego",
-      "id" : 6,
+      "id" : 5,
       "color" : "#cc00ff",
       "rgb" : [204, 0, 255]
     }
