@@ -27,20 +27,33 @@ def canon_mask(x):
     print(check[np.logical_not(ok)])
     """
     cva = np.array(list(colormap.values()))
+    maxb = 0
     for i in np.argwhere(np.logical_not(ok)):
       vv = np.mean((check[i] - cva)**2, axis=1)
       col = np.argmin(vv)
+      maxb = max(vv[col], maxb)
+      if maxb >= 20:
+        break
       #print(i, check[i], col, vv[col])
       check[i] = cva[col]
-    segi = check.reshape(segi.shape)
+    if maxb < 20:
+      print("FIXED", maxb)
+      segi = check.reshape(segi.shape)
+    else:
+      print("COULDN'T FIX", maxb)
     """
 
   im = Image.fromarray(segi)
-  im.save("masks/_"+x)
-  os.rename("masks/_"+x, "masks/"+x)
+  im.save("masks/"+x)
+
+  #os.rename("masks/_"+x, "masks/"+x)
 
 if __name__ == "__main__":
   lst = sorted(os.listdir("masks/"))
+  if len(sys.argv) > 1:
+    canon_mask(lst[int(sys.argv[1])])
+    exit(0)
+
   p = Pool(16)
   for _ in tqdm(p.imap_unordered(canon_mask, lst), total=len(lst)):
     pass
