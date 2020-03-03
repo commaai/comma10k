@@ -26,6 +26,9 @@ def send_mask(path):
 def send_css(path):
   return send_from_directory('static', path)
 
+@app.route('/')
+def base():
+  return redirect("/pencil")
 
 # index
 @app.route('/pencil/')
