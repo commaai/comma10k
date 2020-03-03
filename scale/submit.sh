@@ -16,13 +16,13 @@ curl "https://api.scale.com/v1/task/segmentannotation" \
   -d labels="curb" \
   -d labels="lane marking" \
   -d labels="other road marking (crosswalk, stop line, etc...)" \
-  -d labels="vehicles (cars, buses, trucks, motorcycles, etc...)" \
-  -d labels="other movable things (people, bikes, animals, etc...)" \
+  -d instance_labels="vehicles (cars, buses, trucks, motorcycles, etc...)" \
+  -d instance_labels="other movable things (people, bikes, animals, etc...)" \
   -d labels="undrivable unmovable (grass, buildings, curbs, poles, trees, sidewalks, etc...)" \
-  -d labels="cones and temporary road work signs" \
-  -d labels="stop signs (just the sign part)" \
-  -d labels="other street signs (speed limit, parking, yield, etc... just the sign part)" \
-  -d labels="traffic light" \
+  -d instance_labels="cones and temporary road work signs" \
+  -d instance_labels="stop signs (just the sign part)" \
+  -d instance_labels="other street signs (speed limit, parking, yield, etc... just the sign part)" \
+  -d instance_labels="traffic light" \
   -d labels="my car (and anything inside it)" \
   -d allow_unlabeled=false
 
