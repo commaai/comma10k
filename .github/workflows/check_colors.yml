@@ -26,4 +26,4 @@ jobs:
         pip install pillow tqdm numpy
     - name: Check colors
       run: |
-        python tools/canonicialize_masks.py
+        ONLYCHECK=1 python tools/canonicialize_masks.py

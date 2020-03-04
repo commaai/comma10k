@@ -10,6 +10,8 @@ from PIL import Image
 
 colormap = get_colormap()
 
+onlycheck = os.getenv("ONLYCHECK") is not None
+
 def canon_mask(x):
   segi = fix(Image.open("masks/"+x))
 
@@ -46,8 +48,9 @@ def canon_mask(x):
       print("COULDN'T FIX", maxb)
     """
 
-  im = Image.fromarray(segi)
-  im.save("masks/"+x)
+  if not onlycheck:
+    im = Image.fromarray(segi)
+    im.save("masks/"+x)
 
   #os.rename("masks/_"+x, "masks/"+x)
   return bad
@@ -60,8 +63,13 @@ if __name__ == "__main__":
 
   p = Pool(16)
   bads = []
-  for bad in tqdm(p.imap_unordered(canon_mask, lst), total=len(lst)):
-    bads.append(bad)
+
+  if onlycheck:
+    for bad in p.imap_unordered(canon_mask, lst):
+      bads.append(bad)
+  else:
+    for bad in tqdm(p.imap_unordered(canon_mask, lst), total=len(lst)):
+      bads.append(bad)
 
   if any(bads):
     print("THERE ARE %d BAD IMAGES IN THE DATASET" % sum(bads))
