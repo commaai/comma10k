@@ -66,7 +66,7 @@ if __name__ == "__main__":
   if any(bads):
     print("THERE ARE %d BAD IMAGES IN THE DATASET" % sum(bads))
     ALLOWED_BAD = 16
-    if bads > ALLOWED_BAD:
+    if sum(bads) > ALLOWED_BAD:
       exit(-1)
     else:
       # TODO: as you fix the bad images, lower ALLOWED_BAD
