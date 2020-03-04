@@ -5,12 +5,24 @@
 
 # test them on 999
 
+if [ -z "$1" ]; then
+  echo "please provide file name"
+  exit
+else
+  echo "submitting file $1"
+fi
+
+if [ -z "$SCALE" ]; then
+  echo "please provide scale api key"
+  exit
+fi
+
 curl "https://api.scale.com/v1/task/segmentannotation" \
   -u "$SCALE" \
   -d callback_url="http://www.example.com/callback" \
   -d instruction="Please segment the image using the given labels." \
   -d attachment_type=image \
-  -d attachment="https://raw.githubusercontent.com/commaai/comma10k/master/imgs/0999_e8e95b54ed6116a6_2018-10-22--11-26-21_3_339.png" \
+  -d attachment="https://raw.githubusercontent.com/commaai/comma10k/master/imgs/$1" \
   -d labels="sky" \
   -d labels="road (all parts, including shoulders)" \
   -d labels="curb" \
