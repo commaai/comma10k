@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import os
 import sys
-from common.window import Window
 import numpy as np
 from tqdm import tqdm
 from PIL import Image
@@ -37,6 +36,7 @@ def fix(im):
 
 
 if __name__ == "__main__":
+  from tools.window import Window
   win = Window(1164, 874)
   lst = sorted(os.listdir("imgs/"))
   if len(sys.argv) > 1:
