@@ -51,3 +51,7 @@ pip install Flask
 ```
 
 Then open a browser window to http://localhost:5000/
+
+## The Goal
+
+![Alt](sample.gif "Animated GIF showing mask")
