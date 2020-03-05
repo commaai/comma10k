@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
   if any(bads):
     print("THERE ARE %d BAD IMAGES IN THE DATASET" % sum(bads), list(np.where(bads)[0]))
-    ALLOWED_BAD = 16
+    ALLOWED_BAD = 0
     if sum(bads) > ALLOWED_BAD:
       exit(-1)
     else:
