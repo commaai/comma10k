@@ -65,14 +65,14 @@ if __name__ == "__main__":
   bads = []
 
   if onlycheck:
-    for bad in p.imap_unordered(canon_mask, lst):
+    for bad in p.map(canon_mask, lst):
       bads.append(bad)
   else:
-    for bad in tqdm(p.imap_unordered(canon_mask, lst), total=len(lst)):
+    for bad in tqdm(p.map(canon_mask, lst), total=len(lst)):
       bads.append(bad)
 
   if any(bads):
-    print("THERE ARE %d BAD IMAGES IN THE DATASET" % sum(bads))
+    print("THERE ARE %d BAD IMAGES IN THE DATASET" % sum(bads), list(np.where(bads)[0]))
     ALLOWED_BAD = 16
     if sum(bads) > ALLOWED_BAD:
       exit(-1)
