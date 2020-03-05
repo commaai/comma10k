@@ -1,0 +1,1 @@
+dist\server\server.exe

@@ -1,0 +1,29 @@
+name: Pencil Tool Windows Compile
+on:
+  push:
+    paths:
+      - 'pencil/**'
+      - '.github/workflows/pencil_tool_windows.yml'
+  pull_request:
+    paths:
+      - 'pencil/**'
+      - '.github/workflows/pencil_tool_windows.yml'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - run: pip install -r pencil/requirements.txt
+      - run: pip install pyinstaller
+      - run: pyinstaller -y server.spec
+        working-directory: pencil
+      - name: Archive Server Dist
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: pencil/dist
