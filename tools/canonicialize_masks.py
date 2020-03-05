@@ -61,13 +61,13 @@ if __name__ == "__main__":
     canon_mask(lst[int(sys.argv[1])])
     exit(0)
 
-  p = Pool(16)
   bads = []
 
   if onlycheck:
-    for bad in p.map(canon_mask, lst):
+    for bad in tqdm(map(canon_mask, lst), total=len(lst)):
       bads.append(bad)
   else:
+    p = Pool(16)
     for bad in tqdm(p.map(canon_mask, lst), total=len(lst)):
       bads.append(bad)
 
