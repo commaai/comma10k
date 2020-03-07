@@ -10,6 +10,8 @@ from PIL import Image
 
 colormap = get_colormap()
 
+onlycheck = os.getenv("ONLYCHECK") is not None
+
 def canon_mask(x):
   segi = fix(Image.open("masks/"+x))
 
@@ -22,9 +24,12 @@ def canon_mask(x):
     okk = np.all(okk, axis=1)
     ok |= okk
 
+  bad = False
+
   if not np.all(ok):
     print(x+" HAS %d pixels with BAD COLORS" % sum(np.logical_not(ok)))
     print(check[np.logical_not(ok)])
+    bad = True
     """
     cva = np.array(list(colormap.values()))
     maxb = 0
@@ -43,10 +48,12 @@ def canon_mask(x):
       print("COULDN'T FIX", maxb)
     """
 
-  im = Image.fromarray(segi)
-  im.save("masks/"+x)
+  if not onlycheck:
+    im = Image.fromarray(segi)
+    im.save("masks/"+x)
 
   #os.rename("masks/_"+x, "masks/"+x)
+  return bad
 
 if __name__ == "__main__":
   lst = sorted(os.listdir("masks/"))
@@ -54,7 +61,24 @@ if __name__ == "__main__":
     canon_mask(lst[int(sys.argv[1])])
     exit(0)
 
-  p = Pool(16)
-  for _ in tqdm(p.imap_unordered(canon_mask, lst), total=len(lst)):
-    pass
+  bads = []
+
+  if onlycheck:
+    for bad in tqdm(map(canon_mask, lst), total=len(lst)):
+      bads.append(bad)
+  else:
+    p = Pool(16)
+    for bad in tqdm(p.map(canon_mask, lst), total=len(lst)):
+      bads.append(bad)
+
+  if any(bads):
+    print("THERE ARE %d BAD IMAGES IN THE DATASET" % sum(bads), list(np.where(bads)[0]))
+    ALLOWED_BAD = 0
+    if sum(bads) > ALLOWED_BAD:
+      exit(-1)
+    else:
+      # TODO: as you fix the bad images, lower ALLOWED_BAD
+      exit(0)
+  else:
+    exit(0)
 
