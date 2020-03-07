@@ -11,34 +11,41 @@ mask_colors = {
 }
 
 
-def load_mask_file(image, drawable):
+def _find_mask_layer(image):
+    mask_layer = None
+    for layer in image.layers:
+        if layer.name == 'mask':
+            return layer
+
+
+def _mask_file_name(image):
     fn = pdb.gimp_image_get_filename(image)
-    mask_fn = os.path.join(os.path.dirname(os.path.dirname(fn)), 'masks', os.path.basename(fn))
-    mask_layer = pdb.gimp_file_load_layer(image, mask_fn)
+    return os.path.join(os.path.dirname(os.path.dirname(fn)), 'masks', os.path.basename(fn))
+
+
+def load_mask_file(image, drawable):
+    mask_layer = _find_mask_layer(image)
+    if mask_layer != None:
+        pdb.gimp_message("Mask file already loaded")
+        return
+
+    mask_layer = pdb.gimp_file_load_layer(image, _mask_file_name(image))
     mask_layer.opacity = 30.0
     mask_layer.name = 'mask'
     pdb.gimp_image_insert_layer(image, mask_layer, None, -1)
 
 
 def save_mask_file(image, drawable):
-    layers = image.layers
-    mask_loaded = False
-    for layer in layers:
-        if layer.name == 'mask':
-            mask_loaded = True
-            break
-    if not mask_loaded:
+    mask_layer = _find_mask_layer(image)
+    if not mask_layer:
         pdb.gimp_message("Mask file not loaded yet")
         return
 
-    for layer in layers:
-        if layer.name == 'mask':
-            mask_loaded = True
-            if not pdb.gimp_item_get_visible(layer):
-                layer.visible = True
-        else:
-            if pdb.gimp_item_get_visible(layer):
-                layer.visible = False
+    mask_fn = _mask_file_name(image)
+    pdb.file_png_save2(image, mask_layer, mask_fn, mask_fn, 0, 9, 0, 0, 0, 0, 0, 0, 0)
+    pdb.gimp_image_remove_layer(mask_layer)
+    load_mask_file(image, drawable)
+
 
 register(
     "comma10k_load_mask_file",
