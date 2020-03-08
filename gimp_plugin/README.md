@@ -6,7 +6,7 @@ Copy [gimp_comma10k_helpers.py](https://github.com/nanamiwang/comma10k/blob/gimp
 
  - For window, find the plugin folder in GIMP installation folder. For example: <pre>C:\Users\nanami\AppData\Local\Programs\GIMP 2\lib\gimp\2.0\plug-ins</pre>
  - For Ubuntu, the private plugin folder is in user folder, For example: 
-     <pre>/home/nanami/.gimp_-2.8/plug-ins/pre>
+     <pre>/home/nanami/.gimp_-2.8/plug-ins</pre>
 
 For Ubuntu, Also check the execution permission of the plugin python file and run "chmod +x" if necessary.
 
