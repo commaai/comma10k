@@ -18,9 +18,9 @@ The comma10k menu items should show up after successful installation.
 ![68747470733a2f2f692e6962622e636f2f4d566b366b736e2f696d6167652e706e67](https://user-images.githubusercontent.com/3113052/76161584-bbe78d80-616f-11ea-97d3-a5875df8b11a.png)
 
 ## Plugin Usage & Labelling Tips
-### Load the image & mask
-- Click "Open..." menu in GIMP, locate the comma10k git repo folder and choose a image file.
-
+### Load the Image & Mask
+- Clone the comma10k github repo.
+- Click "Open..." menu in GIMP, locate the comma10k/imgs folder and choose a image file.
 - Load the existing mask file by clicking the "Load Mask File" menu item. This will locate the mask file in the repo automatically. A layer named "mask" will be created for the mask file, and the opacity will be set to 30.0.
 ![Load_mask_file1](https://user-images.githubusercontent.com/3113052/76161632-2a2c5000-6170-11ea-879a-550d91bef3db.png)
 ![Load_mask_file2](https://user-images.githubusercontent.com/3113052/76161668-78d9ea00-6170-11ea-9212-42058c3ac6c5.png)
