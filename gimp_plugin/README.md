@@ -14,7 +14,7 @@ For Ubuntu, Also check the execution permission of the plugin python file and ru
 Restart GIMP to load the plugin.
 
 The comma10k menu items should show up after successful installation.
-![](https://i.ibb.co/MVk6ksn/image.png)
+![](https://photos.app.goo.gl/Mxsw92gyQEqrTmqP6)
 
 ## Plugin Usage & Labelling Tips
 ### Load the image & mask
