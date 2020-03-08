@@ -26,7 +26,7 @@ The comma10k menu items should show up after successful installation.
 ![Load_mask_file2](https://user-images.githubusercontent.com/3113052/76161668-78d9ea00-6170-11ea-9212-42058c3ac6c5.png)
 
 ### Label selected area as specific category
-Select some regions using any of the GIMP selection tools(Free Select Tool is a good choice), then click menu "Label Selected Pixels as" and choose a category. This will fill the selected area on the mask layer using the category color. You can operate on any layer for this work.
+Select some regions using any of the GIMP selection tools(Free Select Tool is a good choice), then click menu "Label Selected Pixels as" and choose a category. This will fill the selected area on the mask layer using the category color.
 ![label_selected_1](https://user-images.githubusercontent.com/3113052/76161727-fdc50380-6170-11ea-9060-64d66a41b926.png)
 ![label_selected_2](https://user-images.githubusercontent.com/3113052/76161747-3a90fa80-6171-11ea-8be2-dfd8c1a760c8.png)
 
