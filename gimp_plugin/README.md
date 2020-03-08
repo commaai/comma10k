@@ -25,7 +25,7 @@ Load the existing mask file by clicking the "Load Mask File" menu item. This wil
 ![](https://i.ibb.co/F6qq0n2/image.png)
 
 ### Label selected area as specific category
-Select some regions using any of the GIMP selection tools(Free Select Tool is a good choice), then click menu "Label Selected Pixels as" and choose a category. This will fill the selected area on the mask layer using the category color.
+Select some regions using any of the GIMP selection tools(Free Select Tool is a good choice), then click menu "Label Selected Pixels as" and choose a category. This will fill the selected area on the mask layer using the category color. You can operate on any layer for this work.
 ![](https://i.ibb.co/Dp2hX1Y/image.png)
 
 ### Update the Mask File
