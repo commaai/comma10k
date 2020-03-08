@@ -1,6 +1,6 @@
 ## Comma10k GIMP plugin and labelling tips
  - A GIMP plugin for facilitating labelling of comma10k images.
- - Some tips for how to label the images and finetune the mask file using the awesome GIMP tool.
+ - Some tips for how to label the images and fine-tune the mask file using the awesome GIMP tool.
 
 ## Plugin Installation
 Copy [gimp_comma10k_helpers.py](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/gimp_comma10k_helpers.py) to the GIMP plugins folder
@@ -31,8 +31,8 @@ Select some regions using any of the GIMP selection tools(Free Select Tool is a 
 ### Update the Mask File
 Clicking the plugin "Save Mask File" menu item. This will export the mask layer to PNG file, overwrite the existing mask file in the git repo and reload it in GIMP.
 
-### Finetuning the the labels
-Click the subitems of plugin "Set Foreground Color to" menu. This will set the foreground color to the category color, then you can paint on the mask layer using any of the paint tools. This is useful for finetuning some pixels.
+### Fine-tuning the the labels
+Click the subitems of plugin "Set Foreground Color to" menu. This will set the foreground color to the category color, then you can paint on the mask layer using any of the paint tools. This is useful for fine-tuning some pixels.
 ![](https://i.ibb.co/2MRP55V/image.png)
 ![](https://i.ibb.co/KrqBBx9/image.png)
 
