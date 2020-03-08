@@ -1,7 +1,6 @@
 ## Comma10k GIMP plugin and labelling tips
  - A GIMP plugin for facilitating labelling of comma10k images.
  - Some tips for how to label the images and finetune the mask file using the awesome GIMP tool.
- - Operating on the mask file directly.
 
 ## Plugin Installation
 Copy [gimp_comma10k_helpers.py](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/gimp_comma10k_helpers.py) to the GIMP plugins folder
