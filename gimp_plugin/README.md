@@ -30,6 +30,7 @@ Select some regions using any of the GIMP selection tools(Free Select Tool is a 
 
 ### Update the Mask File
 Clicking the plugin "Save Mask File" menu item. This will export the mask layer to PNG file, overwrite the existing mask file in the git repo and reload it in GIMP.
+![](https://i.ibb.co/MB6zV2h/image.png)
 
 ### Fine-tuning the the labels
 Click the subitems of plugin "Set Foreground Color to" menu. This will set the foreground color to the category color, then you can paint on the mask layer using any of the paint tools. This is useful for fine-tuning some pixels.
