@@ -3,11 +3,11 @@ from gimpfu import *
 import os
 
 label_colors = {
-  'Road': (0x40, 0x20, 0x20),
-  'Lanemarkings': (0xff, 0x00, 0x00),
-  'Undrivable': (0x80, 0x80, 0x60),
-  'Movable': (0x00, 0xff, 0x66),
-  'Mycar': (0xcc, 0x00, 0xff),
+    'Road': (0x40, 0x20, 0x20),
+    'Lanemarkings': (0xff, 0x00, 0x00),
+    'Undrivable': (0x80, 0x80, 0x60),
+    'Movable': (0x00, 0xff, 0x66),
+    'Mycar': (0xcc, 0x00, 0xff),
 }
 
 
@@ -48,7 +48,7 @@ def save_mask_file(image, drawable):
     load_mask_file(image, drawable)
 
 
-def label_selected_pixels(image, drawable, cls_name):
+def label_selected_pixels(image, drawable, category_name):
     mask_layer = _find_mask_layer(image)
     if not mask_layer:
         gimp.message("Mask file not loaded yet")
@@ -56,7 +56,7 @@ def label_selected_pixels(image, drawable, cls_name):
     if pdb.gimp_selection_is_empty(image):
         pdb.gimp_message("You must first select a region.")
         return
-    pdb.gimp_context_set_foreground(label_colors[cls_name])
+    pdb.gimp_context_set_foreground(label_colors[category_name])
     pdb.gimp_edit_fill(mask_layer, 0)
     pdb.gimp_selection_none(image)
     mask_layer.visible = True
@@ -90,33 +90,33 @@ register(
 )
 
 
-for cls_name in label_colors.keys():
+for category_name in label_colors.keys():
     register(
-        "comma10k_set_foreground_color_%s" % cls_name,
-        "Set FColor to %s" % cls_name,
-        "Set FColor to %s" % cls_name,
+        "comma10k_set_foreground_color_%s" % category_name,
+        "Set FColor to %s" % category_name,
+        "Set FColor to %s" % category_name,
         "https://github.com/nanamiwang",
         "https://github.com/nanamiwang",
         "2020",
-        "<Image>/Comma10K/Set Foreground Color to/%s" % cls_name,
+        "<Image>/Comma10K/Set Foreground Color to/%s" % category_name,
         "RGB*, GRAY*",
         [],
         [],
-        lambda img, l, cls_name=cls_name: pdb.gimp_context_set_foreground(label_colors[cls_name])
+        lambda img, l, category_name=category_name: pdb.gimp_context_set_foreground(label_colors[category_name])
     )
 
     register(
-        "comma10k_label_selected_pixels_as_%s" % cls_name,
-        "Label selected pixels as %s" % cls_name,
-        "Label selected pixels as %s" % cls_name,
+        "comma10k_label_selected_pixels_as_%s" % category_name,
+        "Label selected pixels as %s" % category_name,
+        "Label selected pixels as %s" % category_name,
         "https://github.com/nanamiwang",
         "https://github.com/nanamiwang",
         "2020",
-        "<Image>/Comma10K/Label Selected Pixels as/%s" % cls_name,
+        "<Image>/Comma10K/Label Selected Pixels as/%s" % category_name,
         "RGB*, GRAY*",
         [],
         [],
-        lambda img, l, cls_name=cls_name: label_selected_pixels(img, l, cls_name)
+        lambda img, l, category_name=category_name: label_selected_pixels(img, l, category_name)
     )
 
 main()
