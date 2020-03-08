@@ -1,5 +1,5 @@
 ## Comma10k GIMP plugin and labelling tips
- - A GIMP plugin for facilitating labelling of comma10k images.
+ - A simple GIMP plugin for facilitating labelling comma10k images.
  - Some tips for how to label the images and fine-tune the mask file using the awesome GIMP tool.
 
 ## Plugin Installation
