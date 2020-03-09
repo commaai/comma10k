@@ -5,9 +5,15 @@ name: Check colors
 
 on:
   push:
-    branches: [ master ]
+    paths:
+      - 'masks/**'
+      - 'tools/canonicialize_masks.py'
+      - '.github/workflows/check_colors.yml'
   pull_request:
-    branches: [ master ]
+    paths:
+      - 'masks/**'
+      - 'tools/canonicialize_masks.py'
+      - '.github/workflows/check_colors.yml'
 
 jobs:
   build:

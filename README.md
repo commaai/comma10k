@@ -45,9 +45,12 @@ If you choose to use an external tool please ensure your color mode is set to 8-
 
 ### Using the comma pencil tool (only works with MacOS/Linux)
 
+See the `pencil` folder. 
+
 ```
-pip install Flask
-./label.sh
+cd pencil
+pip install -r requirements.txt
+python server.py
 ```
 
 Then open a browser window to http://localhost:5000/
