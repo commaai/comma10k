@@ -57,7 +57,7 @@ def label_selected_pixels(image, drawable, category_name):
     return
   pdb.gimp_context_set_foreground(label_colors[category_name])
   pdb.gimp_edit_fill(mask_layer, 0)
-  pdb.gimp_selection_none(image)
+  #pdb.gimp_selection_none(image)
   mask_layer.visible = True
 
 register(
