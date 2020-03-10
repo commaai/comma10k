@@ -15,8 +15,9 @@ For Ubuntu, Also check the execution permission of the plugin python file and ru
 
 Restart GIMP to load the plugin.
 ### 2. Configure shortcut keys for the plugin menu items (Optional)
-Option 1: Assign short keys for the plugin menu items in GIMP "Preference" dialogue. Refer to this official doc for instructions: [https://docs.gimp.org/2.10/en/gimp-concepts-shortcuts.html]https://docs.gimp.org/2.10/en/gimp-concepts-shortcuts.html)
-<pre></pre>
+
+Option 1: Assign short keys for the plugin menu items in GIMP "Preference" dialogue. Refer to this official doc for instructions: [https://docs.gimp.org/2.10/en/gimp-concepts-shortcuts.html](https://docs.gimp.org/2.10/en/gimp-concepts-shortcuts.html)
+
 Option 2 (For GIMP 2.10 only): Use my shortcut keys.
  - Overwrite the existing the menurc in GIMP configurations folder using this one: [menurc](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/menurc). GIMP configurations folder location on windows 10: <pre>C:\Users\%USERNAME%\AppData\Roaming\GIMP\2.10</pre>
  - My shortcut key mappings:
