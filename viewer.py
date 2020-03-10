@@ -4,6 +4,7 @@ import sys
 import numpy as np
 from tqdm import tqdm
 from PIL import Image
+import pygame
 
 NOSEGS = os.getenv("NOSEGS") is not None
 
@@ -50,7 +51,19 @@ if __name__ == "__main__":
       szz.append((sz, x))
     lst = [x[1] for x in sorted(szz, reverse=True)]
 
-  for x in tqdm(lst):
+  print("")
+  print("KEYBOARD COMMANDS:")
+  print("right arrow = step forward")
+  print("left arrow  = step back")
+  print("q or escape = quit")
+  print("")
+  i = 0
+  p = tqdm(total=len(lst))
+  while True:
+    x = lst[i]
+    p.set_description(x)
+    p.n = (i % len(lst)) + 1
+    p.refresh()
     ii = np.array(Image.open("imgs/"+x))
     if not NOSEGS and os.path.isfile("masks/"+x):
       segi = fix(Image.open("masks/"+x))
@@ -58,12 +71,18 @@ if __name__ == "__main__":
       # blend
       ii = ii*0.8 + segi*0.2
     win.draw(ii)
-    print(x)
-    kk = win.getkey()
-    if kk == ord("s"):
-      if not os.path.isfile("scale/response/%s" % x):
-        print("submitting to scaleapi")
-        os.system("scale/submit.sh "+x)
-      else:
-        print("ALREADY SUBMITTED!")
-    
+    while True:
+      kk = win.getkey()
+      if kk == ord("s"):
+        if not os.path.isfile("scale/response/%s" % x):
+          print("submitting to scaleapi")
+          os.system("scale/submit.sh "+x)
+        else:
+          print("ALREADY SUBMITTED!")
+      elif kk in [pygame.locals.K_RIGHT, ord(' '), ord('\n'), ord('\r')]:
+        i += 1
+        break
+      elif kk == pygame.locals.K_LEFT:
+        i += -1
+        break
+
