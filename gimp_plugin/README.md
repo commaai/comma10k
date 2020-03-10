@@ -1,18 +1,34 @@
 ## Comma10k GIMP plugin and labelling tips
  - A simple GIMP plugin for facilitating labelling comma10k images.
  - Some tips for how to label the images and fine-tune the mask file using the awesome GIMP tool.
-## Plugin Installation
+ - Tested on Ubuntu and Windows10.
+
+## Plugin Installation & Configuration
+### 1. Install the python file
 Copy [gimp_comma10k_helpers.py](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/gimp_comma10k_helpers.py) to the GIMP plugins folder
 
- - For window, find the plugin folder in GIMP installation folder. For example: <pre>C:\Users\nanami\AppData\Local\Programs\GIMP 2\lib\gimp\2.0\plug-ins</pre>
+ - For window, find the plugin folder in GIMP installation folder. For example: <pre>C:\Users\%USERNAME%\AppData\Local\Programs\GIMP 2\lib\gimp\2.0\plug-ins</pre>
  - For Ubuntu, the private plugin folder is in user folder, For example: 
-     <pre>/home/nanami/.gimp_-2.8/plug-ins</pre>
+     <pre>/home/$USER/.gimp_-2.8/plug-ins</pre>
 
 For Ubuntu, Also check the execution permission of the plugin python file and run "chmod +x" if necessary.
 
 Restart GIMP to load the plugin.
+### 2. Configure shortcut keys for the plugin menu items (Optional)
+Option 1: Assign short keys for the plugin menu items in GIMP "Preference" dialogue. Refer to this official doc for instructions: [https://docs.gimp.org/2.10/en/gimp-concepts-shortcuts.html]https://docs.gimp.org/2.10/en/gimp-concepts-shortcuts.html)
+<pre></pre>
+Option 2 (For GIMP 2.10 only): Use my shortcut keys.
+ - Overwrite the existing the menurc in GIMP configurations folder using this one: [menurc](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/menurc). GIMP configurations folder location on windows 10: <pre>C:\Users\%USERNAME%\AppData\Roaming\GIMP\2.10</pre>
+ - My shortcut key mappings:
 
-Tested on Ubuntu and Windows10.
+| Menu Item                         | Shortcut Key   |
+| --------------------------------- |:--------------:|
+| Label Selected Pixels as Lanemark | Shift + L      |
+| Label Selected Pixels as Movable | Shift + M      |
+| Label Selected Pixels as Mycar | Shift + C      |
+| Label Selected Pixels as Road | Shift + R      |
+| Label Selected Pixels as Undrivable | Shift + U      |
+![image](https://user-images.githubusercontent.com/3113052/76309512-deacaa00-6307-11ea-9153-18d8506894cc.png)
 
 The comma10k menu items should show up after successful installation.
 ![68747470733a2f2f692e6962622e636f2f4d566b366b736e2f696d6167652e706e67](https://user-images.githubusercontent.com/3113052/76161584-bbe78d80-616f-11ea-97d3-a5875df8b11a.png)
