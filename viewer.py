@@ -37,6 +37,7 @@ def fix(im):
 
 if __name__ == "__main__":
   from tools.window import Window
+  import pygame
   win = Window(1164, 874)
   lst = sorted(os.listdir("imgs/"))
   if len(sys.argv) > 1:
@@ -50,20 +51,48 @@ if __name__ == "__main__":
       szz.append((sz, x))
     lst = [x[1] for x in sorted(szz, reverse=True)]
 
-  for x in tqdm(lst):
-    ii = np.array(Image.open("imgs/"+x))
-    if not NOSEGS and os.path.isfile("masks/"+x):
-      segi = fix(Image.open("masks/"+x))
+  print("")
+  print("KEYBOARD COMMANDS:")
+  print("right arrow = step forward")
+  print("left arrow  = step back")
+  print("up arrow    = raise mask opacity")
+  print("down arrow  = lower mask opacity")
+  print("m           = show/hide mask")
+  print("q or escape = quit")
+  print("")
+  i = 0
+  o = 2
+  m = True
+  p = tqdm(total=len(lst))
+  while True:
+    x = lst[i]
+    p.set_description(x)
+    p.n = (i % len(lst)) + 1
+    p.refresh()
+    while True:
+      ii = np.array(Image.open("imgs/"+x))
+      if not NOSEGS and os.path.isfile("masks/"+x) and m:
+        segi = fix(Image.open("masks/"+x))
+        # blend
+        ii = ii*((10-o)/10) + segi*(o/10)
+      win.draw(ii)
+      kk = win.getkey()
+      if kk == ord("s"):
+        if not os.path.isfile("scale/response/%s" % x):
+          print("submitting to scaleapi")
+          os.system("scale/submit.sh "+x)
+        else:
+          print("ALREADY SUBMITTED!")
+      elif kk == ord('m'):
+        m = not m
+      elif kk == pygame.locals.K_UP:
+        o = min(10, o+1)
+      elif kk == pygame.locals.K_DOWN:
+        o = max(0, o-1)
+      elif kk in [pygame.locals.K_RIGHT, ord(' '), ord('\n'), ord('\r')]:
+        i += 1
+        break
+      elif kk == pygame.locals.K_LEFT:
+        i += -1
+        break
 
-      # blend
-      ii = ii*0.8 + segi*0.2
-    win.draw(ii)
-    print(x)
-    kk = win.getkey()
-    if kk == ord("s"):
-      if not os.path.isfile("scale/response/%s" % x):
-        print("submitting to scaleapi")
-        os.system("scale/submit.sh "+x)
-      else:
-        print("ALREADY SUBMITTED!")
-    
