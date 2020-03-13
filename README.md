@@ -35,6 +35,7 @@ Start labelling!
 
 Useful label tools:
  - The included comma pencil tool
+ - [img-labeler](https://erikbernheim.github.io/img-labeler/)
  - An external image manipulation tool such as [GIMP](https://www.gimp.org/downloads/) (Free) or [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) (Paid)
 If you choose to use an external tool please ensure your color mode is set to 8-bit, and that antialiasing doesn't change the colors on the edges of your mask.
 
@@ -42,6 +43,9 @@ If you choose to use an external tool please ensure your color mode is set to 8-
 2. Fork this repository to your account using the "Fork" button in the top right
 3. Clone your fork, and use your labelling tool of choice to label some images
 4. Open a pull request to the official repository to submit your changes!
+
+### Beginner Tutorial
+<a href="https://www.youtube.com/watch?v=T7s814VJegQ" title="img-labeler tutorial video" rel="noopener"><img src="https://i.imgur.com/hbEzbX5.png" width="300px"></a>
 
 ### Using the comma pencil tool (only works with MacOS/Linux)
 
