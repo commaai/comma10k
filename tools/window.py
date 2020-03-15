@@ -27,7 +27,7 @@ class Window():
   def getkey(self):
     while 1:
       event = pygame.event.wait()
-      if event.type == QUIT:
+      if event.type == QUIT or (event.type == KEYDOWN and event.key in [K_ESCAPE, ord('q'), ord('Q')]):
         pygame.quit()
         sys.exit()
       if event.type == KEYDOWN:
