@@ -47,7 +47,7 @@ If you choose to use an external tool please ensure your color mode is set to 8-
 4. Open a pull request to the official repository to submit your changes!
 
 ### Beginner Tutorial
-<a href="https://www.youtube.com/watch?v=T7s814VJegQ" title="img-labeler tutorial video" rel="noopener"><img src="https://i.imgur.com/hbEzbX5.png" width="300px"></a>
+<a href="https://www.youtube.com/watch?v=T7s814VJegQ" title="img-labeler Tutorial Video" rel="noopener"><img src="https://i.imgur.com/hbEzbX5.png" width="300px"></a>
 
 ### Using the comma pencil tool (only works with MacOS/Linux)
 
