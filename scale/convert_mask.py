@@ -54,13 +54,6 @@ def convert_mask(x):
   scaleai_img = np.array(img)
   red, green, blue, alpha = scaleai_img.T
 
-  # Replace with Comma colors
-  road = ImageColor.getrgb(comma_colormap["road"])
-  lane = ImageColor.getrgb(comma_colormap["lane_marking"])
-  unmovable = ImageColor.getrgb(comma_colormap["unmovable"])
-  movable = ImageColor.getrgb(comma_colormap["movable"])
-  my_car = ImageColor.getrgb(comma_colormap["my_car"])
-
   with open(jsonFile) as f:
     data = json.load(f)
 
