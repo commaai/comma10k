@@ -21,7 +21,7 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 ## Categories of internal segnet
 
 <pre>
- 0 - #ffffff - empty
+ 0 - #000000 - empty
  1 -         - sky (deprecated, now undrivable)
  2 - #402020 - road (all parts, including shoulders, don't include private driveways but include public)
  3 - #ff0000 - lane markings (don't include non lane markings like turn arrows and crosswalks)
