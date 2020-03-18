@@ -8,9 +8,29 @@ from tqdm import tqdm
 from multiprocessing import Pool
 from PIL import Image
 
-colormap = get_colormap()
-
 onlycheck = os.getenv("ONLYCHECK") is not None
+
+if onlycheck:
+  # All pixels must be labelled a real label
+  colormap = get_colormap(
+    key=[
+      # Blue Green Red
+
+      # Road
+      0x202040,
+      # Lane Markings
+      0x0000ff,
+      # Undriveable
+      0x608080,
+      # Moveable
+      0x66ff00,
+      # My Car
+      0xff00cc,
+    ]
+  )
+else:
+  colormap = get_colormap()
+
 
 def canon_mask(x):
   segi = fix(Image.open("masks/"+x))
