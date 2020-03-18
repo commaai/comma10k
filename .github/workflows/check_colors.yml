@@ -3,17 +3,7 @@
 
 name: Check colors
 
-on:
-  push:
-    paths:
-      - 'masks/**'
-      - 'tools/canonicialize_masks.py'
-      - '.github/workflows/check_colors.yml'
-  pull_request:
-    paths:
-      - 'masks/**'
-      - 'tools/canonicialize_masks.py'
-      - '.github/workflows/check_colors.yml'
+on: [push, pull_request]
 
 jobs:
   build:

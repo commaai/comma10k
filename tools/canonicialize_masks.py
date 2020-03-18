@@ -15,6 +15,10 @@ onlycheck = os.getenv("ONLYCHECK") is not None
 def canon_mask(x):
   segi = fix(Image.open("masks/"+x))
 
+  if segi.shape != (874, 1164, 3):
+    print(x+" HAS BAD SHAPE", segi.shape)
+    return False
+
   #print(x, segi.shape, segi.dtype)
   check = segi.reshape(-1, 3)
 
@@ -68,7 +72,7 @@ if __name__ == "__main__":
       bads.append(bad)
   else:
     p = Pool(16)
-    for bad in tqdm(p.map(canon_mask, lst), total=len(lst)):
+    for bad in tqdm(p.imap_unordered(canon_mask, lst), total=len(lst)):
       bads.append(bad)
 
   if any(bads):
