@@ -40,8 +40,11 @@ if __name__ == "__main__":
   win = Window(1164, 874)
   lst = sorted(os.listdir("imgs/"))
   if len(sys.argv) > 1:
-    #lst = list(filter(lambda x: x.startswith(("%04d" % int(sys.argv[1]))), lst))
-    lst = lst[int(sys.argv[1]):]
+    if os.path.isfile(sys.argv[1]):
+      lst = open(sys.argv[1]).read().replace("masks/", "").strip().split("\n")
+    else:
+      #lst = list(filter(lambda x: x.startswith(("%04d" % int(sys.argv[1]))), lst))
+      lst = lst[int(sys.argv[1]):]
 
   if os.getenv("ENTSORT") is not None:
     szz = []
