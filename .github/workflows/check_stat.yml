@@ -13,8 +13,8 @@ on:
       - '.github/workflows/check_stat.yml'
 
 jobs:
-  build:
-
+  stat:
+  
     runs-on: ubuntu-latest
 
     steps:

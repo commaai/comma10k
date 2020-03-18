@@ -1,5 +1,7 @@
 # comma10k
 
+![Completion Progress Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fcomma-pencil-completion-badge.cc.workers.dev%2Fbadge.json)
+
 We are releasing the first 1,000 images of our internal comma10k dataset. After we clean up these labels, we'll release more. Learn more from [the Medium post](https://medium.com/@comma_ai/crowdsourced-segnet-you-can-help-2e683244a039), or on the [comma.ai discord](http://discord.comma.ai) in the #comma-pencil channel.
 
 ![Alt](sample.jpg "First image from the dataset")
@@ -19,7 +21,7 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 ## Categories of internal segnet
 
 <pre>
- 0 - #ffffff - empty
+ 0 - #000000 - empty
  1 -         - sky (deprecated, now undrivable)
  2 - #402020 - road (all parts, including shoulders, don't include private driveways but include public)
  3 - #ff0000 - lane markings (don't include non lane markings like turn arrows and crosswalks)
