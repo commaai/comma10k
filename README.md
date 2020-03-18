@@ -40,6 +40,7 @@ Useful label tools:
  - [img-labeler](https://erikbernheim.github.io/img-labeler/)
  - An external image manipulation tool such as [GIMP](https://www.gimp.org/downloads/) (Free) or [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) (Paid)
 If you choose to use an external tool please ensure your color mode is set to 8-bit, and that antialiasing doesn't change the colors on the edges of your mask.
+   - [@nanamiwang's useful GIMP plugin/setup](https://github.com/nanamiwang/comma10k/tree/gimp_plugin/gimp_plugin)
 
 1. Visit the #comma-pencil channel on the [comma.ai Discord](http://discord.comma.ai) for the latest news and chat about the project.
 2. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1T1kQx-d6iupRlC4ErCyDO9LM59N9cQTSCeXYDSHM3C8/edit) and identify images that haven't been claimed or completed.
