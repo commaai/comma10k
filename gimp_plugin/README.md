@@ -10,7 +10,7 @@
 ### 1. Install the python file
 Copy [gimp_comma10k_helpers.py](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/gimp_comma10k_helpers.py) to the GIMP plugins folder
 
- - For window, find the plugin folder in GIMP installation folder. For example: <pre>C:\Users\%USERNAME%\AppData\Local\Programs\GIMP 2\lib\gimp\2.0\plug-ins</pre>
+ - For window, find the plugin folder in GIMP installation folder. For example: <pre>C:\Users\\%USERNAME%\AppData\Local\Programs\GIMP 2\lib\gimp\2.0\plug-ins</pre>
  - For Ubuntu, the private plugin folder is in user folder, For example: 
      <pre>/home/$USER/.gimp_-2.8/plug-ins</pre>
 
