@@ -4,7 +4,8 @@
  - Tested on Ubuntu and Windows10.
 
 ## Video Tutorial
-[https://youtu.be/aiy2m-ic7ME](https://youtu.be/aiy2m-ic7ME)
+[Installation on Windows10](https://www.youtube.com/watch?v=IDqH5xsi9kM&feature=youtu.be)
+[Labelling Tips](https://youtu.be/aiy2m-ic7ME)
 
 ## Plugin Installation & Configuration
 ### 1. Install the python file
