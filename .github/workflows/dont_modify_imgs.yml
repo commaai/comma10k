@@ -1,0 +1,24 @@
+name: Don't modify the imgs folder
+
+on:
+  push:
+    paths:
+      - 'imgs/**'      
+      - '.github/workflows/dont_modify_imgs.yml'
+  pull_request:
+    paths:
+      - 'imgs/**'      
+      - '.github/workflows/dont_modify_imgs.yml'
+
+jobs:
+  check_imgs:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Check
+      run: test $(git diff --name-only HEAD 0266ab9dbef438f36171de9fe3cb7938bb2bd0b2 imgs/ | wc -l) -eq 0
