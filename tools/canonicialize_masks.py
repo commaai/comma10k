@@ -17,7 +17,7 @@ def canon_mask(x):
 
   if segi.shape != (874, 1164, 3):
     print(x+" HAS BAD SHAPE", segi.shape)
-    return False
+    return True
 
   #print(x, segi.shape, segi.dtype)
   check = segi.reshape(-1, 3)
@@ -85,4 +85,3 @@ if __name__ == "__main__":
       exit(0)
   else:
     exit(0)
-
