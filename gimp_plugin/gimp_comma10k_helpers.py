@@ -1,6 +1,8 @@
 #!/usr/bin/env python2
 from gimpfu import *
 import os
+import urllib2
+import ssl
 
 label_colors = {
   'Road': (0x40, 0x20, 0x20),
@@ -23,6 +25,36 @@ def _mask_file_name(image):
   return os.path.join(os.path.dirname(os.path.dirname(fn)), 'masks', os.path.basename(fn))
 
 
+repo_url_base = 'https://github.com/commaai/comma10k/raw/master/masks/'
+
+def _mask_file_url(image):
+  fn = pdb.gimp_image_get_filename(image)
+  return repo_url_base + os.path.basename(fn)
+
+
+def _dowload_file(url, local_path, progress_text):
+  pdb.gimp_progress_init(progress_text, None)
+  try:
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    u = urllib2.urlopen(url, context=ctx)
+    with open(local_path, 'wb') as f:
+      meta = u.info()
+      file_size = int(meta.getheaders("Content-Length")[0])
+      file_size_dl = 0
+      block_sz = 4192
+      while True:
+        buffer = u.read(block_sz)
+        if not buffer:
+          break
+        file_size_dl += len(buffer)
+        f.write(buffer)
+        pdb.gimp_progress_update(file_size_dl * 100. / file_size)
+  finally:
+    pdb.gimp_progress_end()
+
+	
 def load_mask_file(image, drawable):
   mask_layer = _find_mask_layer(image)
   if mask_layer != None:
@@ -30,7 +62,7 @@ def load_mask_file(image, drawable):
     return
 
   mask_layer = pdb.gimp_file_load_layer(image, _mask_file_name(image))
-  mask_layer.opacity = 30.0
+  mask_layer.opacity = 60.0
   mask_layer.name = 'mask'
   pdb.gimp_image_insert_layer(image, mask_layer, None, -1)
 
@@ -47,6 +79,30 @@ def save_mask_file(image, drawable):
   load_mask_file(image, drawable)
 
 
+def load_github_mask_file(image, drawable):
+  layer_name = 'github mask'
+  for layer in image.layers:
+    if layer.name == layer_name:
+      pdb.gimp_image_remove_layer(image, layer)
+      break
+  url = _mask_file_url(image)
+  progress_text = 'Downloading mask for {}'.format(url.split('/')[-1])
+  tmp_png_fn = pdb.gimp_temp_name('png')
+  _dowload_file(url, tmp_png_fn, progress_text)
+  if not os.path.exists(tmp_png_fn):
+    pdb.gimp_message('Downloading from github failed.')
+    return
+  github_mask_layer = pdb.gimp_file_load_layer(image, tmp_png_fn)
+  github_mask_layer.opacity = 90.0
+  github_mask_layer.name = layer_name
+  pdb.gimp_image_insert_layer(image, github_mask_layer, None, -1)
+  github_mask_layer.visible = True
+  mask_layer = _find_mask_layer(image)
+  if mask_layer != None:
+    mask_layer.opacity = 90.0
+    return
+
+
 def label_selected_pixels(image, drawable, category_name):
   mask_layer = _find_mask_layer(image)
   if not mask_layer:
@@ -59,6 +115,7 @@ def label_selected_pixels(image, drawable, category_name):
   pdb.gimp_edit_fill(mask_layer, 0)
   #pdb.gimp_selection_none(image)
   mask_layer.visible = True
+
 
 register(
   "comma10k_load_mask_file",
@@ -86,6 +143,20 @@ register(
   [],
   [],
   save_mask_file
+)
+
+register(
+  "comma10k_load_github_mask_file",
+  "Load Github Mask File",
+  "Load Github Mask File",
+  "https://github.com/nanamiwang",
+  "https://github.com/nanamiwang",
+  "2020",
+  "<Image>/Comma10K/Load Old Mask from github",
+  "RGB*, GRAY*",
+  [],
+  [],
+  load_github_mask_file
 )
 
 

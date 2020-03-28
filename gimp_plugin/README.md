@@ -3,6 +3,10 @@
  - Some tips for how to label the images and fine-tune the mask file using the awesome GIMP tool.
  - Tested on Ubuntu and Windows10.
 
+## Video Tutorials
+ - [Plug-in Installation on Windows10](https://www.youtube.com/watch?v=IDqH5xsi9kM&feature=youtu.be)
+ - [Labelling Tips](https://youtu.be/aiy2m-ic7ME)
+
 ## Plugin Installation & Configuration
 ### 1. Install the python file
 Copy [gimp_comma10k_helpers.py](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/gimp_comma10k_helpers.py) to the GIMP plugins folder
