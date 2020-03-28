@@ -11,7 +11,7 @@
 ### 1. Install the python file
 Copy [gimp_comma10k_helpers.py](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/gimp_comma10k_helpers.py) to the GIMP plugins folder
 
- - For window, find the plugin folder in GIMP installation folder. For example: <pre>C:\Users\\%USERNAME%\AppData\Local\Programs\GIMP 2\lib\gimp\2.0\plug-ins</pre>
+ - For Windows, find the plugin folder in GIMP installation folder. For example: <pre>%APPDATA%\GIMP 2\lib\gimp\2.0\plug-ins</pre> You can enter that into the address bar in Windows Explorer to navigate to the folder.
  - For Ubuntu, the private plugin folder is in user folder, For example: 
      <pre>/home/$USER/.gimp_-2.8/plug-ins</pre>
 
@@ -23,7 +23,7 @@ Restart GIMP to load the plugin.
 Option 1: Assign short keys for the plugin menu items in GIMP "Preference" dialogue. Refer to this official doc for instructions: [https://docs.gimp.org/2.10/en/gimp-concepts-shortcuts.html](https://docs.gimp.org/2.10/en/gimp-concepts-shortcuts.html)
 
 Option 2 (For GIMP 2.10 only): Use my shortcut keys.
- - Overwrite the existing the menurc in GIMP configurations folder using this one: [menurc](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/menurc). GIMP configurations folder location on windows 10: <pre>C:\Users\%USERNAME%\AppData\Roaming\GIMP\2.10</pre>
+ - Overwrite the existing the menurc in GIMP configurations folder using this one: [menurc](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/menurc). GIMP configurations folder location on windows 10: <pre>%APPDATA%\GIMP\2.10</pre> You can enter that into the address bar in Windows Explorer to navigate to the folder.
  - My shortcut key mappings:
 
 | Menu Item                         | Shortcut Key   |
