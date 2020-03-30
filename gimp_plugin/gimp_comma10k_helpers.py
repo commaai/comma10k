@@ -12,6 +12,17 @@ label_colors = {
   'Mycar': (0xcc, 0x00, 0xff),
 }
 
+label_texts = {
+  'Road': 'Road',
+  'Lanemarkings': 'Lanemarking',
+  'Undrivable': 'Undrivable Area',
+  'Movable': 'Movable Object',
+  'Mycar': 'My Car',
+}
+
+author = 'https://github.com/nanamiwang'
+copyright = 'https://github.com/nanamiwang'
+date = '2020'
 
 def _find_mask_layer(image):
   mask_layer = None
@@ -58,14 +69,23 @@ def _dowload_file(url, local_path, progress_text):
 def load_mask_file(image, drawable):
   mask_layer = _find_mask_layer(image)
   if mask_layer != None:
-    gimp.message("Mask file already loaded")
+    gimp.message("Mask layer already exists")
     return
 
-  mask_layer = pdb.gimp_file_load_layer(image, _mask_file_name(image))
-  mask_layer.opacity = 60.0
-  mask_layer.name = 'mask'
+  mask_file_path = _mask_file_name(image)
+  if os.path.exists(mask_file_path):
+    mask_layer = pdb.gimp_file_load_layer(image, _mask_file_name(image))
+    mask_layer.opacity = 60.0
+    mask_layer.name = 'mask'
+  else:
+    # Paint to undrivable as default
+    pdb.gimp_context_set_foreground(label_colors['Undrivable'])
+    mask_layer = pdb.gimp_layer_new(image, image.width, image.height, RGB_IMAGE, "mask", 60.0, LAYER_MODE_NORMAL)
+    pdb.gimp_drawable_fill(mask_layer, FILL_FOREGROUND)
+    # Start labelling from road
+    pdb.gimp_context_set_foreground(label_colors['Road'])
   pdb.gimp_image_insert_layer(image, mask_layer, None, -1)
-
+  image.clean_all()
 
 def save_mask_file(image, drawable):
   mask_layer = _find_mask_layer(image)
@@ -77,6 +97,7 @@ def save_mask_file(image, drawable):
   pdb.file_png_save2(image, mask_layer, mask_fn, mask_fn, 0, 9, 0, 0, 0, 0, 0, 0, 0)
   pdb.gimp_image_remove_layer(mask_layer)
   load_mask_file(image, drawable)
+  image.clean_all()
 
 
 def load_github_mask_file(image, drawable):
@@ -113,7 +134,7 @@ def label_selected_pixels(image, drawable, category_name):
     return
   pdb.gimp_context_set_foreground(label_colors[category_name])
   pdb.gimp_edit_fill(mask_layer, 0)
-  #pdb.gimp_selection_none(image)
+  pdb.gimp_selection_none(image)
   mask_layer.visible = True
 
 
@@ -121,9 +142,9 @@ register(
   "comma10k_load_mask_file",
   "Load Mask File",
   "Load Mask File",
-  "https://github.com/nanamiwang",
-  "https://github.com/nanamiwang",
-  "2020",
+  author,
+  copyright,
+  date,
   "<Image>/Comma10K/Load Mask File",
   "RGB*, GRAY*",
   [],
@@ -135,10 +156,10 @@ register(
   "comma10k_save_mask_file",
   "Save Mask File",
   "Save Mask File",
-  "https://github.com/nanamiwang",
-  "https://github.com/nanamiwang",
-  "2020",
-  "<Image>/Comma10K/Save Mask File",
+  author,
+  copyright,
+  date,
+  "<Image>/Comma10K/Save Mask to File",
   "RGB*, GRAY*",
   [],
   [],
@@ -147,11 +168,11 @@ register(
 
 register(
   "comma10k_load_github_mask_file",
-  "Load Github Mask File",
-  "Load Github Mask File",
-  "https://github.com/nanamiwang",
-  "https://github.com/nanamiwang",
-  "2020",
+  "Load the old Mask File from github.com",
+  "Load the old Mask File from github.com",
+  author,
+  copyright,
+  date,
   "<Image>/Comma10K/Load Old Mask from github",
   "RGB*, GRAY*",
   [],
@@ -159,16 +180,15 @@ register(
   load_github_mask_file
 )
 
-
 for category_name in label_colors.keys():
   register(
     "comma10k_set_foreground_color_%s" % category_name,
     "Set FColor to %s" % category_name,
     "Set FColor to %s" % category_name,
-    "https://github.com/nanamiwang",
-    "https://github.com/nanamiwang",
-    "2020",
-    "<Image>/Comma10K/Set Foreground Color to/%s" % category_name,
+    author,
+    copyright,
+    date,
+    "<Image>/Comma10K/Set Foreground Color to/%s" % label_texts[category_name],
     "RGB*, GRAY*",
     [],
     [],
@@ -179,10 +199,10 @@ for category_name in label_colors.keys():
     "comma10k_label_selected_pixels_as_%s" % category_name,
     "Label selected pixels as %s" % category_name,
     "Label selected pixels as %s" % category_name,
-    "https://github.com/nanamiwang",
-    "https://github.com/nanamiwang",
-    "2020",
-    "<Image>/Comma10K/Label Selected Pixels as/%s" % category_name,
+    author,
+    copyright,
+    date,
+    "<Image>/Comma10K/Label Selected Pixels as/%s" % label_texts[category_name],
     "RGB*, GRAY*",
     [],
     [],
