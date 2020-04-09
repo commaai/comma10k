@@ -1,8 +1,11 @@
 #!/usr/bin/env python2
+# -*- coding: utf-8 -*-
 from gimpfu import *
 import os
 import urllib2
 import ssl
+import locale
+import ctypes
 
 label_colors = {
   'Road': (0x40, 0x20, 0x20),
@@ -13,21 +16,44 @@ label_colors = {
 }
 
 # I18n
-file_main_menu_text = 'Comma10k Files'
-main_menu_text = 'Comma10k Labelling'
-load_mask_file_text = 'Load Mask File'
-save_mask_to_file_text = 'Save Mask to File'
-load_mask_from_github_text = 'Load Original Mask from github'
-labe_selection_as_text = 'Label Selection as'
-set_foreground_color_to_text = 'Set Foreground Color to'
-label_texts = {
-  'Road': 'Road',
-  'Lanemarkings': 'Lanemarking',
-  'Undrivable': 'Undrivable Area',
-  'Movable': 'Movable Object',
-  'Mycar': 'My Car',
-}
+lang = 'en_US'
+try:
+  windll = ctypes.windll.kernel32
+  lang = locale.windows_locale[ windll.GetUserDefaultUILanguage() ]
+except:
+  pass
 
+if lang == 'zh_CN':
+  file_main_menu_text = '标注文件'
+  main_menu_text = '标注'
+  load_mask_file_text = '加载'
+  save_mask_to_file_text = '保存'
+  load_mask_from_github_text = ''
+  labe_selection_as_text = '标注为'
+  set_foreground_color_to_text = '设置前景颜色为'
+  label_texts = {
+    'Road': '道路',
+    'Lanemarkings': '车道线',
+    'Undrivable': '不可驾驶区域',
+    'Movable': '车辆',
+    'Mycar': '我的车',
+  }
+else:
+  file_main_menu_text = 'Comma10k Files'
+  main_menu_text = 'Comma10k Labelling'
+  load_mask_file_text = 'Load Mask File'
+  save_mask_to_file_text = 'Save Mask to File'
+  load_mask_from_github_text = 'Load Original Mask from github'
+  labe_selection_as_text = 'Label Selection as'
+  set_foreground_color_to_text = 'Set Foreground Color to'
+  label_texts = {
+    'Road': 'Road',
+    'Lanemarkings': 'Lanemarking',
+    'Undrivable': 'Undrivable Area',
+    'Movable': 'Movable Object',
+    'Mycar': 'My Car',
+ }
+ 
 author = 'https://github.com/nanamiwang'
 copyright = 'https://github.com/nanamiwang'
 date = '2020'
@@ -175,19 +201,20 @@ register(
   save_mask_file
 )
 
-register(
-  "comma10k_load_github_mask_file",
-  "Load the old Mask File from github.com",
-  "Load the old Mask File from github.com",
-  author,
-  copyright,
-  date,
-  "<Image>/%s/%s" % (file_main_menu_text, load_mask_from_github_text),
-  "RGB*, GRAY*",
-  [],
-  [],
-  load_github_mask_file
-)
+if len(load_mask_from_github_text) > 0:
+  register(
+    "comma10k_load_github_mask_file",
+    "Load the old Mask File from github.com",
+    "Load the old Mask File from github.com",
+    author,
+    copyright,
+    date,
+    "<Image>/%s/%s" % (file_main_menu_text, load_mask_from_github_text),
+    "RGB*, GRAY*",
+    [],
+    [],
+    load_github_mask_file
+  )
 
 for category_name in label_colors.keys():
   register(
