@@ -12,6 +12,14 @@ label_colors = {
   'Mycar': (0xcc, 0x00, 0xff),
 }
 
+# I18n
+file_main_menu_text = 'Comma10k Files'
+main_menu_text = 'Comma10k Labelling'
+load_mask_file_text = 'Load Mask File'
+save_mask_to_file_text = 'Save Mask to File'
+load_mask_from_github_text = 'Load Original Mask from github'
+labe_selection_as_text = 'Label Selection as'
+set_foreground_color_to_text = 'Set Foreground Color to'
 label_texts = {
   'Road': 'Road',
   'Lanemarkings': 'Lanemarking',
@@ -137,6 +145,7 @@ def label_selected_pixels(image, drawable, category_name):
   pdb.gimp_selection_none(image)
   mask_layer.visible = True
 
+# Plugin registration
 
 register(
   "comma10k_load_mask_file",
@@ -145,7 +154,7 @@ register(
   author,
   copyright,
   date,
-  "<Image>/Comma10K/Load Mask File",
+  "<Image>/%s/%s" % (file_main_menu_text, load_mask_file_text),
   "RGB*, GRAY*",
   [],
   [],
@@ -159,7 +168,7 @@ register(
   author,
   copyright,
   date,
-  "<Image>/Comma10K/Save Mask to File",
+  "<Image>/%s/%s" % (file_main_menu_text, save_mask_to_file_text),
   "RGB*, GRAY*",
   [],
   [],
@@ -173,7 +182,7 @@ register(
   author,
   copyright,
   date,
-  "<Image>/Comma10K/Load Old Mask from github",
+  "<Image>/%s/%s" % (file_main_menu_text, load_mask_from_github_text),
   "RGB*, GRAY*",
   [],
   [],
@@ -182,31 +191,32 @@ register(
 
 for category_name in label_colors.keys():
   register(
-    "comma10k_set_foreground_color_%s" % category_name,
-    "Set FColor to %s" % category_name,
-    "Set FColor to %s" % category_name,
-    author,
-    copyright,
-    date,
-    "<Image>/Comma10K/Set Foreground Color to/%s" % label_texts[category_name],
-    "RGB*, GRAY*",
-    [],
-    [],
-    lambda img, l, category_name=category_name: pdb.gimp_context_set_foreground(label_colors[category_name])
-  )
-
-  register(
     "comma10k_label_selected_pixels_as_%s" % category_name,
     "Label selected pixels as %s" % category_name,
     "Label selected pixels as %s" % category_name,
     author,
     copyright,
     date,
-    "<Image>/Comma10K/Label Selected Pixels as/%s" % label_texts[category_name],
+    "<Image>/%s/%s %s" % (main_menu_text, labe_selection_as_text, label_texts[category_name]),
     "RGB*, GRAY*",
     [],
     [],
     lambda img, l, category_name=category_name: label_selected_pixels(img, l, category_name)
   )
+'''
+  register(
+    "comma10k_set_foreground_color_%s" % category_name,
+    "Set FColor to %s" % category_name,
+    "Set FColor to %s" % category_name,
+    author,
+    copyright,
+    date,
+    "<Image>/%s/%s/%s" % (main_menu_text, set_foreground_color_to_text, label_texts[category_name]),
+    "RGB*, GRAY*",
+    [],
+    [],
+    lambda img, l, category_name=category_name: pdb.gimp_context_set_foreground(label_colors[category_name])
+  )
+'''
 
 main()
