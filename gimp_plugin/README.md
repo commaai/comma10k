@@ -4,7 +4,6 @@
  - Tested on Ubuntu and Windows10.
 
 ## [Video Tutorials on YouTube](https://www.youtube.com/playlist?list=PLM6xCLAr1t5pZNZYqEfT3jiJehao3qnrS)
- - [Plug-in Installation on Windows10](https://www.youtube.com/watch?v=IDqH5xsi9kM&feature=youtu.be)
  - [Labelling Tips](https://youtu.be/aiy2m-ic7ME)
  - [Download and compare with the existing mask on github](https://www.youtube.com/watch?v=zQ6P8WWvtEU&list=PLM6xCLAr1t5pZNZYqEfT3jiJehao3qnrS&index=4&t=0s)
 
