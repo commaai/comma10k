@@ -9,14 +9,18 @@
  - [Download and compare with the existing mask on github](https://www.youtube.com/watch?v=zQ6P8WWvtEU&list=PLM6xCLAr1t5pZNZYqEfT3jiJehao3qnrS&index=4&t=0s)
 
 ## Plugin Installation & Configuration
-### 1. Install the python file
-1. Copy [gimp_comma10k_helpers.py](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/gimp_comma10k_helpers.py) to the GIMP plugins folder
+### Option 1), for windows only:
+1. Install GIMP 2.X
+2. Download setup packge [GIMP_Comma10K_Plugin_Setup_1.01.exe](https://github.com/nanamiwang/comma10k/releases/download/1.01/GIMP_Comma10K_Plugin_Setup_1.01.exe) and run.
+### Option 2), manual installation:
+1. Install GIMP 2.X
+2. Copy [gimp_comma10k_helpers.py](https://github.com/nanamiwang/comma10k/blob/gimp_plugin/gimp_plugin/gimp_comma10k_helpers.py) to the GIMP plugins folder
  - For Windows, find the plugin folder in GIMP installation folder. For example: <pre>%APPDATA%\Local\Programs\GIMP 2\lib\gimp\2.0\plug-ins</pre> You can enter that into the address bar in Windows Explorer to navigate to the folder.
  - For Ubuntu, the private plugin folder is in user folder, For example: 
      <pre>/home/$USER/.gimp-2.8/plug-ins</pre>
  - For Ubuntu, Also check the execution permission of the plugin python file and run "chmod +x" if necessary.
  - Refer to [this wiki](https://en.wikibooks.org/wiki/GIMP/Installing_Plugins) for more instructions.
-2. Restart GIMP to load the plugin.
+3. Restart GIMP to load the plugin.
 ### 2. Configure shortcut keys for the plugin menu items (Optional)
 
 Option 1: Assign short keys for the plugin menu items in GIMP "Preference" dialogue. Refer to this official doc for instructions: [https://docs.gimp.org/2.10/en/gimp-concepts-shortcuts.html](https://docs.gimp.org/2.10/en/gimp-concepts-shortcuts.html)
