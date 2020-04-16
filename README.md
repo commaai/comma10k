@@ -42,7 +42,7 @@ Useful label tools:
 If you choose to use an external tool please ensure your color mode is set to 8-bit, and that antialiasing doesn't change the colors on the edges of your mask.
 
 1. Visit the #comma-pencil channel on the [comma.ai Discord](http://discord.comma.ai) for the latest news and chat about the project.
-2. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1T1kQx-d6iupRlC4ErCyDO9LM59N9cQTSCeXYDSHM3C8/edit) and identify images that haven't been claimed or completed.
+2. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8) and identify images that haven't been claimed or completed.
 3. Create an Issue on this repository to indicate which images you intend to label. This is to ensure we don't have two people working on one at the same time, which would be a waste of time.
 4. Fork this repository to your account using the "Fork" button in the top right
 5. Clone your fork, and use your labelling tool of choice to label some images
