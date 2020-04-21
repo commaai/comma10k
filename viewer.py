@@ -7,14 +7,17 @@ from PIL import Image
 
 NOSEGS = os.getenv("NOSEGS") is not None
 
-def get_colormap():
+def get_colormap(five=True):
   f32 = lambda x: (x % 256, x//256 % 256, x//(256*256) % 256)
-  key = [0, 0xc4c4e2, 2105408, 255, 0x608080, 6749952, 16737792, 16711884]
+  if five:
+    key = [2105408, 255, 0x608080, 6749952, 16711884]
+  else:
+    key = [0, 0xc4c4e2, 2105408, 255, 0x608080, 6749952, 16737792, 16711884]
   return {i: f32(key[i]) for i in range(len(key))}
 
-def gray_to_color(image):
+def gray_to_color(image, five=True):
   W,H = image.shape[0:2]
-  colormap = get_colormap()
+  colormap = get_colormap(five)
   c = image.ravel()
   output = np.asarray([colormap[i] for i in c]) 
   output = output.reshape((W, H, 3)).astype(np.uint8)
