@@ -21,6 +21,6 @@ jobs:
         fetch-depth: 0
 
     - name: Check 1st thousand
-      run: test $(git diff --name-only HEAD 0266ab9dbef438f36171de9fe3cb7938bb2bd0b2 imgs/ | wc -l) -eq 1000
+      run: test $(git diff --name-only HEAD 0266ab9dbef438f36171de9fe3cb7938bb2bd0b2 imgs/0* | wc -l) -eq 0
     - name: Check 2nd thousand
-      run: test $(git diff --name-only HEAD 4cee1fb54a016a72af204dd1b8effe4cb007df54 imgs/ | wc -l) -eq 0
+      run: test $(git diff --name-only HEAD 4cee1fb54a016a72af204dd1b8effe4cb007df54 imgs/1* | wc -l) -eq 0
