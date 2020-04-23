@@ -15,7 +15,7 @@ from PIL import Image
 BASEDIR = "/raid.dell03/runner/comma10k/Comma10k"
 
 win = Window(1164, 874)
-cc = 0
+cc = 100
 
 dat = open(sys.argv[1]).read().strip().split("\n")
 for d in tqdm(dat):
