@@ -44,8 +44,8 @@ If you choose to use an external tool please ensure your color mode is set to 8-
 1. Visit the #comma-pencil channel on the [comma.ai Discord](http://discord.comma.ai) for the latest news and chat about the project.
 2. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8) and put your discord username in the "labeller" column for the mask(s) you're working on and change the status to "In Progress"
 3. Fork this repository to your account using the "Fork" button in the top right
-4. Clone your fork, and use your labelling tool of choice to label some images
-5. Open a pull request to the official repository to submit your changes!
+4. Create a *new branch* from the *master* branch, and use your labelling tool of choice to label some images
+5. Open a pull request from your new branch to the master branch in the official repository to submit your changes!
 
 ### Beginner Tutorial
 <a href="https://www.youtube.com/watch?v=T7s814VJegQ" title="img-labeler Tutorial Video" rel="noopener"><img src="https://i.imgur.com/hbEzbX5.png" width="300px"></a>
