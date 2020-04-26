@@ -6,6 +6,6 @@ out += subprocess.check_output("git diff --name-only HEAD 0c2e5ee5e4f2f72ab0c2e2
 out += subprocess.check_output("git diff --name-only HEAD 329ff5f6dc6e96476ec09ed3e42d6bd52edc83fc masks/r0*", shell=True).strip().split(b"\n")
 with open("files_trainable", "wb") as f:
   f.write(b'\n'.join(out))
-print("number labelled %d, percent done: %.2f%%" % (len(out), len(out)/2102.0*100))
+print("number labelled %d, percent done: %.2f%%" % (len(out), len(out)/2110.0*100))
 
 
