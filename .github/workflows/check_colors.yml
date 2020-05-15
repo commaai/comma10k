@@ -19,7 +19,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pillow tqdm numpy
+        pip install pillow tqdm numpy requests
     - name: Check colors
       run: |
         PRNUM=${{ github.event.pull_request.number }} ONLYCHECK=1 python tools/canonicialize_masks.py
