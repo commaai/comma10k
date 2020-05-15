@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import os
 import sys
-import subprocess
 sys.path.append(os.getcwd())
 import numpy as np
 from viewer import fix, get_colormap
