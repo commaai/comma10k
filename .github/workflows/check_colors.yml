@@ -22,7 +22,7 @@ jobs:
         pip install pillow tqdm numpy requests
     - name: Setup environment
       run: |
-        echo ::set-env name=PRNUM::$(echo "$GITHUB_REF" | awk -F / '{print $3}')
+        echo ::set-env name=PRNUM::${{ github.event.pull_request.number }}
     - name: Check colors
       run: |
         ONLYCHECK=1 python tools/canonicialize_masks.py
