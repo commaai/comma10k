@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
   if onlycheck:
     # Only process changed files
-    lst = subprocess.check_output("git diff --name-only HEAD master masks/ | awk '{sub(/masks\//,\"\"); print }'", shell=True).strip().split(b"\n")
+    lst = subprocess.check_output("git diff --name-only HEAD origin/master masks/ | awk '{sub(/masks\//,\"\"); print }'", shell=True).strip().split(b"\n")
     if len(lst[0].decode("utf-8")) > 0:
       for bad in tqdm(map(canon_mask, lst), total=len(lst)):
         bads.append(bad)
