@@ -43,7 +43,7 @@ If you choose to use an external tool please ensure your color mode is set to 8-
 6. Visit the #comma-pencil channel on the [comma.ai Discord](http://discord.comma.ai) for the latest news and chat about the project.
 
 ### Beginner Tutorial
-<a href="https://invidio.us/watch?v=RxqG15zOmCk&nojs=1" title="img-labeler Tutorial Video" rel="noopener noreferer"><img src="https://invidio.us/vi/RxqG15zOmCk/maxres.jpg" width="640px"></a>
+<a href="https://invidio.us/watch?v=RxqG15zOmCk&nojs=1" title="img-labeler Tutorial Video" rel="noopener noreferer"><img src="https://invidio.us/vi/RxqG15zOmCk/maxres.jpg" width="480px"></a>
 
 ### Using the comma pencil tool (only works with MacOS/Linux)
 
