@@ -20,8 +20,6 @@ api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files"
 def get_pr():  
   response = requests.get(api_url)
   file_list = []
-  print(api_url)
-  print(response.json())
   for item in response.json():
     mask = re.search("^masks/",item["filename"])
     if mask is not None:
