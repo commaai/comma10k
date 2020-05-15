@@ -16,6 +16,8 @@ def check_file(x):
   bad = 1
   if x in static_list:
     bad = 0
+  else:
+    print("Bad file: %s" % x)
 
   return bad
 

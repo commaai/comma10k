@@ -7,11 +7,25 @@ from viewer import fix, get_colormap
 from tqdm import tqdm
 from multiprocessing import Pool
 from PIL import Image
+import requests
+import re
 
 colormap = get_colormap()
 
 onlycheck = os.getenv("ONLYCHECK") is not None
+pr_num = os.getenv("PRNUM")
+api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files"
 
+def get_pr():  
+  response = requests.get(api_url)
+  file_list = []
+  for item in response.json():
+    mask = re.search("^masks/",item["filename"])
+    if mask is not None:
+      file_list.append(item["filename"].replace("masks/",""))
+
+  return file_list
+  
 def canon_mask(x):
   segi = fix(Image.open("masks/"+x))
 
@@ -68,6 +82,8 @@ if __name__ == "__main__":
   bads = []
 
   if onlycheck:
+    # Only process changed files, do this by pulling from the PR files list from GitHub API
+    lst = get_pr()
     for bad in tqdm(map(canon_mask, lst), total=len(lst)):
       bads.append(bad)
   else:
