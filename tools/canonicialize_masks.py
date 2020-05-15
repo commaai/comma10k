@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import sys
+import subprocess
 sys.path.append(os.getcwd())
 import numpy as np
 from viewer import fix, get_colormap
@@ -13,10 +14,10 @@ colormap = get_colormap()
 onlycheck = os.getenv("ONLYCHECK") is not None
 
 def canon_mask(x):
-  segi = fix(Image.open("masks/"+x))
+  segi = fix(Image.open("masks/"+x.decode("utf-8")))
 
   if segi.shape != (874, 1164, 3):
-    print(x+" HAS BAD SHAPE", segi.shape)
+    print(x.decode("utf-8")+" HAS BAD SHAPE", segi.shape)
     return True
 
   #print(x, segi.shape, segi.dtype)
@@ -31,7 +32,7 @@ def canon_mask(x):
   bad = False
 
   if not np.all(ok):
-    print(x+" HAS %d pixels with BAD COLORS" % sum(np.logical_not(ok)))
+    print(x.decode("utf-8")+" HAS %d pixels with BAD COLORS" % sum(np.logical_not(ok)))
     print(check[np.logical_not(ok)])
     bad = True
     """
@@ -68,8 +69,11 @@ if __name__ == "__main__":
   bads = []
 
   if onlycheck:
-    for bad in tqdm(map(canon_mask, lst), total=len(lst)):
-      bads.append(bad)
+    # Only process changed files
+    lst = subprocess.check_output("git diff --name-only HEAD master masks/ | awk '{sub(/masks\//,\"\"); print }'", shell=True).strip().split(b"\n")
+    if len(lst[0].decode("utf-8")) > 0:
+      for bad in tqdm(map(canon_mask, lst), total=len(lst)):
+        bads.append(bad)
   else:
     p = Pool(16)
     for bad in tqdm(p.imap_unordered(canon_mask, lst), total=len(lst)):
