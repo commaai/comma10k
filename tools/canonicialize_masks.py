@@ -13,11 +13,17 @@ colormap = get_colormap()
 
 onlycheck = os.getenv("ONLYCHECK") is not None
 
+def convert_string(x):
+  if type(x) is str:
+    return x
+  else:
+    return x.decode("utf-8")
+
 def canon_mask(x):
-  segi = fix(Image.open("masks/"+x.decode("utf-8")))
+  segi = fix(Image.open("masks/"+convert_string(x)))
 
   if segi.shape != (874, 1164, 3):
-    print(x.decode("utf-8")+" HAS BAD SHAPE", segi.shape)
+    print(convert_string(x)+" HAS BAD SHAPE", segi.shape)
     return True
 
   #print(x, segi.shape, segi.dtype)
@@ -32,7 +38,7 @@ def canon_mask(x):
   bad = False
 
   if not np.all(ok):
-    print(x.decode("utf-8")+" HAS %d pixels with BAD COLORS" % sum(np.logical_not(ok)))
+    print(convert_string(x)+" HAS %d pixels with BAD COLORS" % sum(np.logical_not(ok)))
     print(check[np.logical_not(ok)])
     bad = True
     """
