@@ -32,9 +32,9 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 
 1. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8) and put your discord username in the "labeller" column for the mask(s) you're working on and change the status to "In Progress"
 2. Start labelling! Useful label tools:
- - [img-labeler](https://erikbernheim.github.io/img-labeler/)
- - The included comma pencil tool
- - An external image manipulation tool such as [GIMP](https://www.gimp.org/downloads/)/[Krita](https://krita.org/) (Free) or [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) (Paid)
+   * [img-labeler](https://erikbernheim.github.io/img-labeler/)
+   * The included comma pencil tool
+   * An external image manipulation tool such as [GIMP](https://www.gimp.org/downloads/)/[Krita](https://krita.org/) (Free) or [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) (Paid)
 If you choose to use an external tool please ensure your color mode is set to 8-bit, and that antialiasing doesn't change the colors on the edges of your mask.
 
 3. Fork this repository to your account using the "Fork" button in the top right
@@ -43,7 +43,7 @@ If you choose to use an external tool please ensure your color mode is set to 8-
 6. Visit the #comma-pencil channel on the [comma.ai Discord](http://discord.comma.ai) for the latest news and chat about the project.
 
 ### Beginner Tutorial
-<center><a href="https://invidio.us/latest_version?id=RxqG15zOmCk&nojs=1&itag=22" title="img-labeler Tutorial Video" rel="noopener"><img src="https://i.ytimg.com/vi/RxqG15zOmCk/maxresdefault.jpg" width="640px"></a></center>
+<a href="https://invidio.us/watch?v=RxqG15zOmCk&nojs=1" title="img-labeler Tutorial Video" rel="noopener" align="center"><img src="https://invidio.us/vi/RxqG15zOmCk/maxres.jpg" width="640px"></a>
 
 ### Using the comma pencil tool (only works with MacOS/Linux)
 
