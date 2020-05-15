@@ -8,22 +8,30 @@ from viewer import fix, get_colormap
 from tqdm import tqdm
 from multiprocessing import Pool
 from PIL import Image
+import requests
+import re
 
 colormap = get_colormap()
 
 onlycheck = os.getenv("ONLYCHECK") is not None
+pr_num = os.getenv("PRNUM")
+api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files"
 
-def convert_string(x):
-  if type(x) is str:
-    return x
-  else:
-    return x.decode("utf-8")
+def get_pr():  
+  response = requests.get(api_url)
+  file_list = []
+  for item in response.json():
+    mask = re.search("^masks/",item["filename"])
+    if mask is not None:
+      file_list.append(item["filename"].replace("masks/",""))
 
+  return file_list
+  
 def canon_mask(x):
-  segi = fix(Image.open("masks/"+convert_string(x)))
+  segi = fix(Image.open("masks/"+x))
 
   if segi.shape != (874, 1164, 3):
-    print(convert_string(x)+" HAS BAD SHAPE", segi.shape)
+    print(x+" HAS BAD SHAPE", segi.shape)
     return True
 
   #print(x, segi.shape, segi.dtype)
@@ -38,7 +46,7 @@ def canon_mask(x):
   bad = False
 
   if not np.all(ok):
-    print(convert_string(x)+" HAS %d pixels with BAD COLORS" % sum(np.logical_not(ok)))
+    print(x+" HAS %d pixels with BAD COLORS" % sum(np.logical_not(ok)))
     print(check[np.logical_not(ok)])
     bad = True
     """
@@ -75,11 +83,10 @@ if __name__ == "__main__":
   bads = []
 
   if onlycheck:
-    # Only process changed files
-    lst = subprocess.check_output("git diff --name-only HEAD origin/master masks/ | awk '{sub(/masks\//,\"\"); print }'", shell=True).strip().split(b"\n")
-    if len(lst[0].decode("utf-8")) > 0:
-      for bad in tqdm(map(canon_mask, lst), total=len(lst)):
-        bads.append(bad)
+    # Only process changed files, do this by pulling from the PR files list from GitHub API
+    lst = get_pr()
+    for bad in tqdm(map(canon_mask, lst), total=len(lst)):
+      bads.append(bad)
   else:
     p = Pool(16)
     for bad in tqdm(p.imap_unordered(canon_mask, lst), total=len(lst)):

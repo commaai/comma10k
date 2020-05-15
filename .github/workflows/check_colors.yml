@@ -22,4 +22,4 @@ jobs:
         pip install pillow tqdm numpy
     - name: Check colors
       run: |
-        ONLYCHECK=1 python tools/canonicialize_masks.py
+        PRNUM=${{ github.event.pull_request.number }} ONLYCHECK=1 python tools/canonicialize_masks.py
