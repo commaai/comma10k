@@ -20,6 +20,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pillow tqdm numpy requests
+    - name: Setup environment
+      run: |
+        echo ::set-env name=PRNUM::$(echo "$GITHUB_REF" | awk -F / '{print $3}')
     - name: Check colors
       run: |
-        PRNUM=$(echo "$GITHUB_REF" | awk -F / '{print $3}') ONLYCHECK=1 python tools/canonicialize_masks.py
+        ONLYCHECK=1 python tools/canonicialize_masks.py
