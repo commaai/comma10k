@@ -30,7 +30,7 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 
 ## How can I help?
 
-1. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8) and put your discord username in the "labeller" column for the mask(s) you're working on and change the status to "In Progress"
+1. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8) (request access to edit the spreadsheet if you haven't already) and put your discord username in the "labeller" column for the mask(s) you're working on and change the status to "In Progress"
 2. Start labelling! Useful label tools:
    * [img-labeler](https://erikbernheim.github.io/img-labeler/)
    * The included comma pencil tool
