@@ -92,6 +92,8 @@ if __name__ == "__main__":
   else:
     p = Pool(16)
     for bad in tqdm(p.imap_unordered(canon_mask, lst), total=len(lst)):
+      if bad:
+        print("GOT BAD")
       bads.append(bad)
 
   if any(bads):
