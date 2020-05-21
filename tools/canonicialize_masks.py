@@ -14,7 +14,8 @@ colormap = get_colormap()
 
 onlycheck = os.getenv("ONLYCHECK") is not None
 pr_num = os.getenv("PRNUM")
-api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files"
+if pr_num is not None:
+  api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files"
 
 def get_pr():  
   response = requests.get(api_url)
@@ -91,6 +92,8 @@ if __name__ == "__main__":
   else:
     p = Pool(16)
     for bad in tqdm(p.imap_unordered(canon_mask, lst), total=len(lst)):
+      if bad:
+        print("GOT BAD")
       bads.append(bad)
 
   if any(bads):
