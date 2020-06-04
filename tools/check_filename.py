@@ -19,7 +19,7 @@ def check_file(x):
   return bad
 
 if __name__ == "__main__":
-  filenames = subprocess.check_output("git ls-files masks | awk '{sub(/masks\//,\"\"); print }'", shell=True).strip().split(b"\n")
+  filenames = subprocess.check_output("git ls-files imgs | awk '{sub(/imgs\//,\"\"); print }'", shell=True).strip().split(b"\n")
 #  exit(0)
   lst = sorted(os.listdir("masks/"))
   bads = []
