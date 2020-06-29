@@ -1,11 +1,24 @@
 #!/usr/bin/env python3
+import os
 import subprocess
-out = subprocess.check_output("git diff --name-only HEAD 9b327ccde35edf7d9bd51af247e3d785a87f759e masks/0*", shell=True).strip().split(b"\n")
-out += subprocess.check_output("git diff --name-only HEAD 675f01fec8ebd430f2781ccdef6c17bd542ad9c5 masks/1*", shell=True).strip().split(b"\n")
-out += subprocess.check_output("git diff --name-only HEAD 0c2e5ee5e4f2f72ab0c2e2521344b1035fdaddba masks/h0*", shell=True).strip().split(b"\n")
-out += subprocess.check_output("git diff --name-only HEAD 329ff5f6dc6e96476ec09ed3e42d6bd52edc83fc masks/r0*", shell=True).strip().split(b"\n")
+# https://stackoverflow.com/questions/5669621/git-find-out-which-files-have-had-the-most-commits
+out = subprocess.check_output("git rev-list --objects --all | awk '$2' | sort -k2 | uniq -cf1 | sort -rn", shell=True).strip().split(b"\n")
+fnn = []
+al = 0
+for j in out:
+  jj = j.strip().split(b" ")
+  if len(jj) != 3:
+    continue
+  cnt, _, fn = jj
+  cnt = int(cnt)
+  if os.path.isfile(fn) and fn.startswith(b"masks/"):
+    if cnt > 1:
+      fnn.append(fn)
+    al += 1
+out = sorted(fnn)
+
 with open("files_trainable", "wb") as f:
   f.write(b'\n'.join(out))
-print("number labelled %d, percent done: %.2f%%" % (len(out), len(out)/2109.0*100))
+print("number labelled %d/%d, percent done: %.2f%%" % (len(out), al, len(out)/al*100.))
 
 
