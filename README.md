@@ -60,3 +60,7 @@ Then open a browser window to http://localhost:5000/
 ## The Goal
 
 ![Alt](sample.gif "Animated GIF showing mask")
+
+## Publication
+
+comma10k is still a work in progress. For now, just cite the GitHub link. Once we reach 10k images, we'll release a paper, a train/test split, and a benchmark model. 
