@@ -142,8 +142,9 @@ $("#download").click((evt)=>{
 })
 
 $("#load").click((evt)=>{
+    var timestamp = new Date().getTime();
     overlayImg = new Image();
-    overlayImg.src = '/masks/'+img_name;
+    overlayImg.src = '/masks/'+img_name+'?t='+timestamp;
     overlayImg.onload = drawAllPaths
     overlayImg.onerror = function(){
         overlayImg = null;
