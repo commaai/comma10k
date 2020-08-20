@@ -15,7 +15,7 @@ colormap = get_colormap()
 onlycheck = os.getenv("ONLYCHECK") is not None
 pr_num = os.getenv("PRNUM")
 if pr_num is not None:
-  api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files"
+  api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files?per_page=100"
 
 def get_pr():  
   response = requests.get(api_url)
