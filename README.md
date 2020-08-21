@@ -45,18 +45,6 @@ If you choose to use an external tool please ensure your color mode is set to 8-
 ### Beginner Tutorial
 <a href="https://youtube.com/watch?v=RxqG15zOmCk" title="img-labeler Tutorial Video" rel="noopener noreferer"><img src="https://i.ytimg.com/vi/RxqG15zOmCk/maxresdefault.jpg" width="480px"></a>
 
-### Using the comma pencil tool (only works with MacOS/Linux)
-
-See the `pencil` folder. 
-
-```
-cd pencil
-pip install -r requirements.txt
-python server.py
-```
-
-Then open a browser window to http://localhost:5000/
-
 ## The Goal
 
 ![Alt](sample.gif "Animated GIF showing mask")
@@ -64,3 +52,6 @@ Then open a browser window to http://localhost:5000/
 ## Publication
 
 comma10k is still a work in progress. For now, just cite the GitHub link. Once we reach 10k images, we'll release a paper, a train/test split, and a benchmark model. 
+
+For now, we are validating on images ending with "9.png" and are seeing a categorical cross entropy loss of 0.061. Can you beat this?
+
