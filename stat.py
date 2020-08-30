@@ -5,6 +5,7 @@ import subprocess
 out = subprocess.check_output("git rev-list --objects --all | awk '$2' | sort -k2 | uniq -cf1 | sort -rn", shell=True).strip().split(b"\n")
 fnn = []
 al = 0
+al_set = set()
 for j in out:
   jj = j.strip().split(b" ")
   if len(jj) != 3:
@@ -15,7 +16,13 @@ for j in out:
     if cnt > 1:
       fnn.append(fn)
     al += 1
+    al_set.add(fn)
 out = sorted(fnn)
+
+missing_count = al - len(out)
+if missing_count < 20:
+  print(f"last {missing_count} mask(s) missing:")
+  print(al_set.difference(set(out)))
 
 with open("files_trainable", "wb") as f:
   f.write(b'\n'.join(out))
