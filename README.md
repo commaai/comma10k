@@ -53,5 +53,5 @@ If you choose to use an external tool please ensure your color mode is set to 8-
 
 comma10k is still a work in progress. For now, just cite the GitHub link. Once we reach 10k images, we'll release a paper, a train/test split, and a benchmark model. 
 
-For now, we are validating on images ending with "9.png" and are seeing a categorical cross entropy loss of 0.061. Can you beat this?
+For now, we are validating on images ending with "9.png" and are seeing a categorical cross entropy loss of 0.051. Can you beat this?
 
