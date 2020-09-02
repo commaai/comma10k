@@ -10,7 +10,7 @@ sys.path.append(os.getcwd())
 # This script checks to see if files are in the wrong folder (should be in /masks folder)
 
 # Only these files should exist in the repo
-static_list = ['.git', '.github', '.gitignore', 'LICENSE', 'README.md', 'files_trainable', 'imgs', 'masks', 'pencil', 'requirements.txt', 'sample.gif', 'sample.jpg', 'scale', 'stat.py', 'tools', 'viewer.py']
+static_list = ['.git', '.github', '.gitignore', 'LICENSE', 'README.md', 'files_trainable', 'imgs', 'masks', 'pencil', 'requirements.txt', 'sample.gif', 'sample.jpg', 'scale', 'runstat.py', 'tools', 'viewer.py', 'make_sa_dataset.sh']
 
 def check_file(x):
   bad = 1
