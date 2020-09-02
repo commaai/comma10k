@@ -27,7 +27,7 @@ while len(glob.glob(("imgs/"+mask+"*") % cc)) > 0:
   cc += 1
 print("starting with %d" % cc)
 
-seen = set([x[len('imgs/h113_'):] for x in glob.glob("imgs/*")])
+seen = set([x.split("_", 1)[1] for x in glob.glob("imgs/*")])
 
 # permanent camera occulusions
 EXCLUDE_USERS = ["807f77aac0daa4b6", "84e6a31bffe59bee"]
