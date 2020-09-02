@@ -18,7 +18,12 @@ BASEDIR = sys.argv[1]
 win = Window(1164, 874)
 cc = 0
 
-while len(glob.glob("imgs/h%03d*" % cc)) > 0:
+if len(sys.argv) > 3:
+  mask = sys.argv[3]
+else:
+  mask = "h%03d"
+
+while len(glob.glob(("imgs/"+mask+"*") % cc)) > 0:
   cc += 1
 print("starting with %d" % cc)
 
@@ -26,6 +31,7 @@ seen = set([x[len('imgs/h113_'):] for x in glob.glob("imgs/*")])
 
 # permanent camera occulusions
 EXCLUDE_USERS = ["807f77aac0daa4b6", "84e6a31bffe59bee"]
+
 
 dat = open(sys.argv[2]).read().strip().split("\n")
 for d in tqdm(dat):
@@ -47,7 +53,7 @@ for d in tqdm(dat):
     kk = win.getkey()
     if kk == ord("z"):
       suf = dd[1][5:]
-      outn = "imgs/h%03d_%s" % (cc, suf)
+      outn = ("imgs/"+mask+"_%s") % (cc, suf)
       print("saving ", outn)
       im = Image.fromarray(ii)
       im.save(outn)
