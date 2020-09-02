@@ -4,12 +4,12 @@ on:
   push:
     paths:
       - 'masks/**'
-      - 'stat.py'
+      - 'runstat.py'
       - '.github/workflows/check_stat.yml'
   pull_request:
     paths:
       - 'masks/**'
-      - 'stat.py'
+      - 'runstat.py'
       - '.github/workflows/check_stat.yml'
 
 jobs:
@@ -29,4 +29,4 @@ jobs:
 
     - name: Amount Done
       run: |
-        python stat.py
+        python runstat.py
