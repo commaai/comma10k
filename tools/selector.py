@@ -33,8 +33,9 @@ seen = set([x.split("_", 1)[1] for x in glob.glob("imgs/*")])
 # permanent camera occulusions
 EXCLUDE_USERS = ["807f77aac0daa4b6", "84e6a31bffe59bee"]
 
-seek_fn = glob.glob("imgs/"+(mask % (cc-1))+"*")[0].split("_", 1)[1]
-print(seek_fn)
+seek_fn = None
+#seek_fn = glob.glob("imgs/"+(mask % (cc-1))+"*")[0].split("_", 1)[1]
+#print(seek_fn)
 
 o = 2
 dat = open(sys.argv[2]).read().strip().split("\n")
