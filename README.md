@@ -55,3 +55,7 @@ comma10k is still a work in progress. For now, just cite the GitHub link. Once w
 
 For now, we are validating on images ending with "9.png" and are seeing a categorical cross entropy loss of 0.051. Can you beat this?
 
+And it has been beaten with a CCE loss of 0.045! <a href="https://github.com/YassineYousfi/comma10k-baseline">"comma10k-baseline" by YassineYousfi!</a>
+
+Can you beat that?
+
