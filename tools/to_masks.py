@@ -19,6 +19,8 @@ if __name__ == "__main__":
   os.makedirs("masks/", exist_ok=True)
   p = Pool(16)
   lst = sorted(os.listdir("segs/"))
+  lst = list(filter(lambda x: not os.path.isfile("masks/"+x.replace(".npz", "")), lst))
+  print("running %d" % len(lst))
   for _ in tqdm(p.imap_unordered(make_segz, lst), total=len(lst)):
     pass
 
