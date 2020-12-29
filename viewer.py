@@ -8,7 +8,7 @@ from PIL import Image
 NOSEGS = os.getenv("NOSEGS") is not None
 
 def get_colormap(five=True):
-  f32 = lambda x: (x % 256, x//256 % 256, x//(256*256) % 256)
+  f32 = lambda x: (x % 256, x // 256 % 256, x // (256*256) % 256)
   if five:
     key = [2105408, 255, 0x608080, 6749952, 16711884]
   else:
@@ -68,7 +68,7 @@ if __name__ == "__main__":
   i = 0
   o = 2
   m = True
-  p = tqdm(total=len(lst))
+  p = tqdm(total = len(lst))
   while True:
     x = lst[i]
     p.set_description(x)
