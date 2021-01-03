@@ -6,7 +6,7 @@ This is the first 2,000 images of our internal comma10k dataset. After we clean 
 
 ![Alt](sample.jpg "First image from the dataset")
 
-It's 10,000 pngs of real driving captured from the comma fleet. It's MIT license, no academic only restrictions or anything.
+It's 10,000 png's of real driving captured from the comma fleet. It's MIT license, no academic only restrictions or anything.
 
 Run <pre>./viewer.py</pre> to see them with segnet overlay.
 
