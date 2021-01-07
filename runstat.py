@@ -25,7 +25,7 @@ for j in out:
     if cnt > 1:
       fnn.append(fn)
     al_set.add(fn)
-out = sorted(fnn)
+out = sorted(list(set(fnn)))
 
 missing_count = len(al_set) - len(out)
 if missing_count < 20:
