@@ -31,7 +31,7 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 ## How can I help?
 
 1. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8) (request access to edit the spreadsheet if you haven't already) and put your discord username in the "labeller" column for the mask(s) you're working on and change the status to "In Progress" If you're new, please start off by just doing one so we could leave you feedback. Dont want to do too many just to learn you have to redo them.
-2. Spend some time studying already merged masks to see how things are labeled. Use the comma10kviewer to easily do this. 
+2. Spend some time studying already merged masks to see how things are labeled. You could use the comma10kviewer web tool to easily do this. 
 3. Watch the Beginner Tutorial youtube video below.
 4. Start labelling! Useful label tools:
    * [img-labeler](https://erikbernheim.github.io/img-labeler/) (Only compatible with Chrome and Edge. Other browsers like Brave, Firefox, and Opera, even if chromium based, don't work properly. Must also be used with browser zoom and monitor scaling disabled.)
