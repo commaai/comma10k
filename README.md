@@ -15,6 +15,8 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 <pre>
  imgs/  -- The PNG image files
  masks/ -- PNG segmentation masks (update these!)
+ imgs2/  -- New PNG image files paired with fisheye PNGs
+ masks2/ -- PNG segmentation masks (update these!)
  segs/  -- The outputs in probability from our internal segnet (unreleased, too big)
 </pre>
 
