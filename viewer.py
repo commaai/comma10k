@@ -40,8 +40,13 @@ def fix(im):
 if __name__ == "__main__":
   from tools.window import Window
   import pygame
-  win = Window(1164, 874)
-  lst = sorted(os.listdir("imgs/"))
+  if os.getenv("IMGS2") is not None:
+    base_imgs = "imgs2/"
+    win = Window(1928, 1208, halve=True)
+  else:
+    base_imgs = "imgs/"
+    win = Window(1164, 874)
+  lst = sorted(os.listdir(base_imgs))
   if len(sys.argv) > 1:
     if os.path.isfile(sys.argv[1]):
       lst = open(sys.argv[1]).read().replace("masks/", "").strip().split("\n")
@@ -75,7 +80,7 @@ if __name__ == "__main__":
     p.n = (i % len(lst)) + 1
     p.refresh()
     while True:
-      ii = np.array(Image.open("imgs/"+x))
+      ii = np.array(Image.open(base_imgs+x))
       if not NOSEGS and os.path.isfile("masks/"+x) and m:
         segi = fix(Image.open("masks/"+x))
         # blend
@@ -90,14 +95,14 @@ if __name__ == "__main__":
           print("ALREADY SUBMITTED!")
       elif kk == ord('m'):
         m = not m
-      elif kk == pygame.locals.K_UP:
+      elif kk == pygame.K_UP:
         o = min(10, o+1)
-      elif kk == pygame.locals.K_DOWN:
+      elif kk == pygame.K_DOWN:
         o = max(0, o-1)
-      elif kk in [pygame.locals.K_RIGHT, ord(' '), ord('\n'), ord('\r')]:
+      elif kk in [pygame.K_RIGHT, ord(' '), ord('\n'), ord('\r')]:
         i += 1
         break
-      elif kk == pygame.locals.K_LEFT:
+      elif kk == pygame.K_LEFT:
         i += -1
         break
 
