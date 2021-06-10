@@ -1,6 +1,6 @@
 # comma10k
 
-![Completion Progress Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fcomma-pencil-completion-badge.cc.workers.dev%2Fbadge.json)
+[⌛ Check Completion Status Here!](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=0&range=I1)
 
 Learn more from [the blog post](https://blog.comma.ai/crowdsourced-segnet-you-can-help/), or on the [comma.ai discord](http://discord.comma.ai) in the #comma-pencil channel.
 
