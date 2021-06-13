@@ -37,7 +37,6 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 3. Watch the Beginner Tutorial youtube video below.
 4. Start labelling! Useful label tools:
    * [img-labeler](https://erikbernheim.github.io/img-labeler/) (Only compatible with Chrome and Edge. Other browsers like Brave, Firefox, and Opera, even if chromium based, don't work properly. Must also be used with browser zoom and monitor scaling disabled.)
-   * The included comma pencil tool
    * An external image manipulation tool such as [GIMP](https://www.gimp.org/downloads/)/[Krita](https://krita.org/) (Free) or [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) (Paid)
 If you choose to use an external tool please ensure your color mode is set to 8-bit, and that antialiasing doesn't change the colors on the edges of your mask.
 
