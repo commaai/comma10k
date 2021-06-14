@@ -1,14 +1,14 @@
 # comma10k
 
-[⌛ Check Completion Status Here!](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=0&range=I1)
+[⌛ Check Completion Status Here!](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=1040545508&range=I1)
+
+It's 10,000 PNGs of real driving captured from the comma fleet. It's MIT license, no academic only restrictions or anything.
 
 Learn more from [the blog post](https://blog.comma.ai/crowdsourced-segnet-you-can-help/), or on the [comma.ai discord](http://discord.comma.ai) in the #comma-pencil channel.
 
 ![Alt](sample.jpg "First image from the dataset")
 
-It's 10,000 PNGs of real driving captured from the comma fleet. It's MIT license, no academic only restrictions or anything.
-
-Run <pre>./viewer.py</pre> to see them with segnet overlay.
+Run <pre>./viewer.py</pre> to see them with the mask overlay.
 
 ## Directories
 
@@ -32,7 +32,7 @@ Run <pre>./viewer.py</pre> to see them with segnet overlay.
 
 ## How can I help?
 
-1. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8) (request access to edit the spreadsheet if you haven't already) and put your discord username in the "labeller" column for the mask(s) you're working on and change the status to "In Progress" If you're new, please start off with just one so we could leave you feedback. Dont want to do too many just to learn you have to redo them because of something done incorrectly.
+1. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=1040545508) (request access to edit the spreadsheet) and put your discord username in the "labeller" column for the mask(s) you'll be working working on and change the status to "In Progress." If you're new, please start off with just one so we could leave you feedback. Dont want to do too many just to learn you have to redo them because of something done incorrectly.
 2. Spend some time studying already merged masks to see how things are labeled. You could use the comma10kviewer web tool to easily do this. 
 3. Watch the Beginner Tutorial youtube video below.
 4. Start labelling! Useful label tools:
