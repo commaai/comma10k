@@ -1,6 +1,7 @@
 # comma10k
 
-[⌛ Check Completion Status Here!](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=1040545508&range=I1)
+[![Completion Status](https://shields.io/endpoint?url=https%3A%2F%2Fcellshield.info%2Fgs%3FspreadSheetId%3D1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8%26cellRange%3DI1&label=Completion%20Status)](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=0)
+<!-- If you need to change this because the cells have shifted or a new spreadsheet is used, go to https://cellshield.info -->
 
 It's 10,000 PNGs of real driving captured from the comma fleet. It's MIT license, no academic only restrictions or anything.
 
