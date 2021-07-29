@@ -33,15 +33,12 @@ Run <pre>./viewer.py</pre> to see them with the mask overlay.
 
 ## How can I help?
 
-1. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=1040545508) (request access to edit the spreadsheet) and put your discord username in the "labeller" column for the mask(s) you'll be working working on and change the status to "In Progress." If you're new, please start off with just one so we could leave you feedback. Dont want to do too many just to learn you have to redo them because of something done incorrectly.
-
-UPDATE: The original imgs set is complete, but the imgs2 set was added if you wish to contribute. There's  "w" and "f" versions for the same image number. Check the "imgs2 series" tab in the spreadsheet to see what's available. 
+1. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=1040545508) (request access to edit the spreadsheet) and put your discord username in the "labeller" column for the mask(s) you'll be working working on and change the status to "In Progress." If you're new, please start off with just one so we could leave you feedback. Dont want to do too many just to learn you have to redo them because of something done incorrectly. UPDATE: The original imgs set is complete, but the imgs2 set was added if you wish to contribute. There's  "w" and "f" versions for the same image number. Check the "imgs2 series" tab in the spreadsheet to see what's available. 
 
 2. Spend some time studying already merged masks to see how things are labeled. You could use the comma10kviewer web tool to easily do this. 
 3. Watch the Beginner Tutorial youtube video below.
 4. Start labelling! Useful label tools:
-   * [img-labeler](https://erikbernheim.github.io/img-labeler/) (Only compatible with Chrome and Edge. Other browsers like Brave, Firefox, and Opera, even if chromium based, don't work properly. Must also be used with browser zoom and monitor scaling disabled.)
-   UPDATE: Img-labeler has been updated to the support the new imgs2 set. If you would like to work on image 00074_e, simply type 74e in the image number box.  Type 74f for image    00074_f. 
+   * [img-labeler](https://erikbernheim.github.io/img-labeler/) (Only compatible with Chrome and Edge. Other browsers like Brave, Firefox, and Opera, even if chromium based, don't work properly. Must also be used with browser zoom and monitor scaling disabled.) UPDATE: Img-labeler has been updated to the support the new imgs2 set. If you would like to work on image 00074_e, simply type 74e in the image number box.  Type 74f for image    00074_f. 
 
    * An external image manipulation tool such as [GIMP](https://www.gimp.org/downloads/)/[Krita](https://krita.org/) (Free) or [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) (Paid)
 If you choose to use an external tool please ensure your color mode is set to 8-bit, and that antialiasing doesn't change the colors on the edges of your mask.
