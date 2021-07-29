@@ -38,7 +38,7 @@ Run <pre>./viewer.py</pre> to see them with the mask overlay.
 2. Spend some time studying already merged masks to see how things are labeled. You could use the comma10kviewer web tool to easily do this. 
 3. Watch the Beginner Tutorial youtube video below.
 4. Start labelling! Useful label tools:
-   * [img-labeler](https://erikbernheim.github.io/img-labeler/) (Only compatible with Chrome and Edge. Other browsers like Brave, Firefox, and Opera, even if chromium based, don't work properly. Must also be used with browser zoom and monitor scaling disabled.) **UPDATE**: Img-labeler has been updated to support the new imgs2 set. If you would like to work on image 00074_e, simply type 74e in the image number box.  Type 74f for image 00074_f. 
+   * [img-labeler](https://erikbernheim.github.io/img-labeler/) (Only compatible with Chrome and Edge. Other browsers like Brave, Firefox, and Opera, even if chromium based, don't work properly. Must also be used with browser zoom and monitor scaling disabled.) **UPDATE**: Img-labeler has been updated to support the new imgs2 set. If for example, you would like to work on image 00074_e, simply type 74e in the image number box.  Type 74f for image 00074_f. 
 
    * An external image manipulation tool such as [GIMP](https://www.gimp.org/downloads/)/[Krita](https://krita.org/) (Free) or [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) (Paid)
 If you choose to use an external tool please ensure your color mode is set to 8-bit, and that antialiasing doesn't change the colors on the edges of your mask.
