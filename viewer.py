@@ -6,6 +6,7 @@ from tqdm import tqdm
 from PIL import Image
 
 NOSEGS = os.getenv("NOSEGS") is not None
+IMGS2 = os.getenv("IMGS2") is not None
 
 def get_colormap(five=True):
   f32 = lambda x: (x % 256, x//256 % 256, x//(256*256) % 256)
@@ -40,16 +41,18 @@ def fix(im):
 if __name__ == "__main__":
   from tools.window import Window
   import pygame
-  if os.getenv("IMGS2") is not None:
+  if IMGS2:
     base_imgs = "imgs2/"
+    base_masks = "masks2/"
     win = Window(1928, 1208, halve=True)
   else:
     base_imgs = "imgs/"
+    base_masks = "masks/"
     win = Window(1164, 874)
   lst = sorted(os.listdir(base_imgs))
   if len(sys.argv) > 1:
     if os.path.isfile(sys.argv[1]):
-      lst = open(sys.argv[1]).read().replace("masks/", "").strip().split("\n")
+      lst = open(sys.argv[1]).read().replace(base_masks, "").strip().split("\n")
     else:
       #lst = list(filter(lambda x: x.startswith(("%04d" % int(sys.argv[1]))), lst))
       lst = lst[int(sys.argv[1]):]
@@ -81,8 +84,8 @@ if __name__ == "__main__":
     p.refresh()
     while True:
       ii = np.array(Image.open(base_imgs+x))
-      if not NOSEGS and os.path.isfile("masks/"+x) and m:
-        segi = fix(Image.open("masks/"+x))
+      if not NOSEGS and os.path.isfile(base_masks+x) and m:
+        segi = fix(Image.open(base_masks+x))
         # blend
         ii = ii*((10-o)/10) + segi*(o/10)
       win.draw(ii)
