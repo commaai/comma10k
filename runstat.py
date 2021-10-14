@@ -21,7 +21,7 @@ for j in out:
   cnt, _, fn = jj
   fn = tx(fn)
   cnt = int(cnt)
-  if os.path.isfile(fn) and fn.startswith(b"masks/"):
+  if os.path.isfile(fn) and (fn.startswith(b"masks/") or fn.startswith(b"masks2/")):
     if cnt > 1:
       fnn.append(fn)
     al_set.add(fn)
