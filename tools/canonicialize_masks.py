@@ -23,7 +23,7 @@ if pr_num is not None:
 def get_base_dir(filename):
   match = re.search("^masks\d/", filename)
   if match is not None:
-    size = (
+    size = (1208, 1928, 3)
     return match.group(0)
 
   return None
@@ -39,7 +39,6 @@ def get_pr():
 
   for item in response.json():
     if base_dir is not None:
-      size = (1208, 1928, 3)
       file_list.append(item["filename"].replace(base_dir,""))
 
   return file_list
