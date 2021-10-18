@@ -21,14 +21,14 @@ def get_pr():
   response = requests.get(api_url)
   file_list = []
   for item in response.json():
-    mask = re.search("^masks/",item["filename"])
+    mask = re.search("^masks2/",item["filename"])
     if mask is not None:
-      file_list.append(item["filename"].replace("masks/",""))
+      file_list.append(item["filename"].replace("masks2/",""))
 
   return file_list
   
 def canon_mask(x):
-  segi = fix(Image.open("masks/"+x))
+  segi = fix(Image.open("masks2/"+x))
 
   if segi.shape != (874, 1164, 3):
     print(x+" HAS BAD SHAPE", segi.shape)
@@ -69,13 +69,13 @@ def canon_mask(x):
 
   if not onlycheck:
     im = Image.fromarray(segi)
-    im.save("masks/"+x)
+    im.save("masks2/"+x)
 
-  #os.rename("masks/_"+x, "masks/"+x)
+  #os.rename("masks2/_"+x, "masks2/"+x)
   return bad
 
 if __name__ == "__main__":
-  lst = sorted(os.listdir("masks/"))
+  lst = sorted(os.listdir("masks2/"))
   if len(sys.argv) > 1:
     canon_mask(lst[int(sys.argv[1])])
     exit(0)
