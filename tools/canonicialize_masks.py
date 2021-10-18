@@ -13,7 +13,10 @@ import re
 colormap = get_colormap()
 
 base_dir = "masks/" # default to old set
-size = (874, 1164, 3) # default masks/ size
+size_dict = {
+  "masks/": (874, 1164, 3),
+  "masks2/": (1208, 1928, 3)
+}
 
 onlycheck = os.getenv("ONLYCHECK") is not None
 pr_num = os.getenv("PRNUM")
@@ -21,9 +24,8 @@ if pr_num is not None:
   api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files?per_page=100"
 
 def get_base_dir(filename):
-  match = re.search("^masks\d/", filename)
+  match = re.search("^masks\d*/", filename)
   if match is not None:
-    size = (1208, 1928, 3)
     return match.group(0)
 
   return None
@@ -46,7 +48,7 @@ def get_pr():
 def canon_mask(x):
   segi = fix(Image.open(base_dir + x))
 
-  if segi.shape != size:
+  if segi.shape != size_dict[base_dir]:
     print(x+" HAS BAD SHAPE", segi.shape)
     return True
 
