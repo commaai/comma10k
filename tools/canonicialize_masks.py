@@ -37,7 +37,8 @@ def get_pr():
   # Credit to @pjlao307 for the below
   # Use first file in the PR to determine what dir to use then use this value anywhere the correct folder is needed
   # This assumes all files in the PR are in the same folder so this will break if that's not the case
-  base_dir = get_base_dir(response.json()[0]['filename']) 
+  global base_dir
+  base_dir = get_base_dir(response.json()[0]['filename'])
 
   for item in response.json():
     if base_dir is not None:
