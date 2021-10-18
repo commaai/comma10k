@@ -56,7 +56,7 @@ def canon_mask(x):
   #print(x, segi.shape, segi.dtype)
   check = segi.reshape(-1, 3)
 
-  ok = np.zeros(check.shape[0], dtype=np.bool)
+  ok = np.zeros(check.shape[0], dtype=bool)
   for v in colormap.values():
     okk = check == np.array(v)
     okk = np.all(okk, axis=1)
