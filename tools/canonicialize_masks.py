@@ -37,13 +37,13 @@ def get_pr():
   # Credit to @pjlao307 for the below
   # Use first file in the PR to determine what dir to use then use this value anywhere the correct folder is needed
   # This assumes all files in the PR are in the same folder so this will break if that's not the case
-  base_dir = get_base_dir(response.json()[0]['filename']) 
+  global base_dir = get_base_dir(response.json()[0]['filename'])
 
   for item in response.json():
     if base_dir is not None:
       file_list.append(item["filename"].replace(base_dir,""))
 
-  return base_dir, file_list
+  return file_list
   
 def canon_mask(x):
   segi = fix(Image.open(base_dir + x))
@@ -102,7 +102,7 @@ if __name__ == "__main__":
   if onlycheck:
     # Only process changed files, do this by pulling from the PR files list from GitHub API
     if pr_num:
-      base_dir, lst = get_pr()
+      lst = get_pr()
 
     for bad in tqdm(map(canon_mask, lst), total=len(lst)):
       bads.append(bad)
