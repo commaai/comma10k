@@ -12,25 +12,42 @@ import re
 
 colormap = get_colormap()
 
+base_dir = "masks/" # default to old set
+size = (874, 1164, 3) # default masks/ size
+
 onlycheck = os.getenv("ONLYCHECK") is not None
 pr_num = os.getenv("PRNUM")
 if pr_num is not None:
   api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files?per_page=100"
 
+def get_base_dir(filename):
+  match = re.search("^masks\d/", filename)
+  if match is not None:
+    size = (
+    return match.group(0)
+
+  return None
+
 def get_pr():  
   response = requests.get(api_url)
   file_list = []
+
+  # Credit to @pjlao307 for the below
+  # Use first file in the PR to determine what dir to use then use this value anywhere the correct folder is needed
+  # This assumes all files in the PR are in the same folder so this will break if that's not the case
+  base_dir = get_base_dir(response.json()[0]['filename']) 
+
   for item in response.json():
-    mask = re.search("^masks2/",item["filename"])
-    if mask is not None:
-      file_list.append(item["filename"].replace("masks2/",""))
+    if base_dir is not None:
+      size = (1208, 1928, 3)
+      file_list.append(item["filename"].replace(base_dir,""))
 
   return file_list
   
 def canon_mask(x):
-  segi = fix(Image.open("masks2/"+x))
+  segi = fix(Image.open(base_dir + x))
 
-  if segi.shape != (874, 1164, 3):
+  if segi.shape != size:
     print(x+" HAS BAD SHAPE", segi.shape)
     return True
 
@@ -69,13 +86,12 @@ def canon_mask(x):
 
   if not onlycheck:
     im = Image.fromarray(segi)
-    im.save("masks2/"+x)
+    im.save(base_dir+x)
 
-  #os.rename("masks2/_"+x, "masks2/"+x)
   return bad
 
 if __name__ == "__main__":
-  lst = sorted(os.listdir("masks2/"))
+  lst = sorted(os.listdir(base_dir))
   if len(sys.argv) > 1:
     canon_mask(lst[int(sys.argv[1])])
     exit(0)
