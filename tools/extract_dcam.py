@@ -11,10 +11,10 @@ n = len(os.listdir("imgsd/"))
 if __name__ == "__main__":
   print("this is image %d" % n)
   x = sys.argv[1]
-  if '|' in x:
-    path = "cd:/"+x.replace("|", "/")+"/"+cc+"camera.hevc"
-  else:
+  if os.path.isfile(x):
     path = x
+  else:
+    path = "cd:/"+x.replace("|", "/")+"/"+cc+"camera.hevc"
   fr = FrameReader(path)
   rframe = fr.get(frn, pix_fmt="rgb24")[0]
   fn = "%05d.png" % n
