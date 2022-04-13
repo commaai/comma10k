@@ -29,6 +29,7 @@ Run <pre>./viewer.py</pre> to see them with the mask overlay.
  3 - #808060 - undrivable
  4 - #00ff66 - movable (vehicles and people/animals)
  5 - #cc00ff - my car (and anything inside it, including wires, mounts, etc. No reflections)
+ 6 - #00ccff - movable in my car (people inside the car, imgsd only)
 </pre>
 
 ## How can I help?
