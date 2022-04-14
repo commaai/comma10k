@@ -15,7 +15,8 @@ colormap = get_colormap()
 base_dir = "masks/" # default to old set
 size_dict = {
   "masks/": (874, 1164, 3),
-  "masks2/": (1208, 1928, 3)
+  "masks2/": (1208, 1928, 3),
+  "masksd/": (1208, 1928, 3)
 }
 
 onlycheck = os.getenv("ONLYCHECK") is not None
@@ -24,7 +25,7 @@ if pr_num is not None:
   api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files?per_page=100"
 
 def get_base_dir(filename):
-  match = re.search("^masks\d*/", filename)
+  match = re.search("^masks\w*/", filename)
   if match is not None:
     return match.group(0)
 
