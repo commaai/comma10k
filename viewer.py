@@ -11,7 +11,7 @@ IMGS2 = os.getenv("IMGS2") is not None
 def get_colormap(five=True):
   f32 = lambda x: (x % 256, x//256 % 256, x//(256*256) % 256)
   if five:
-    key = [2105408, 255, 0x608080, 6749952, 16711884]
+    key = [2105408, 255, 0x608080, 6749952, 16711884, 0xffcc00]
   else:
     key = [0, 0xc4c4e2, 2105408, 255, 0x608080, 6749952, 16737792, 16711884]
   return {i: f32(key[i]) for i in range(len(key))}
