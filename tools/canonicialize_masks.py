@@ -10,8 +10,7 @@ from PIL import Image
 import requests
 import re
 
-colormap = get_colormap()
-
+colormap = None
 base_dir = "masks/" # default to old set
 size_dict = {
   "masks/": (874, 1164, 3),
@@ -38,8 +37,9 @@ def get_pr():
   # Credit to @pjlao307 for the below
   # Use first file in the PR to determine what dir to use then use this value anywhere the correct folder is needed
   # This assumes all files in the PR are in the same folder so this will break if that's not the case
-  global base_dir
+  global base_dir, colormap
   base_dir = get_base_dir(response.json()[0]['filename'])
+  colormap = get_colormap(True, base_dir)
 
   for item in response.json():
     if base_dir is not None:
