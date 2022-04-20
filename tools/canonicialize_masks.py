@@ -10,7 +10,7 @@ from PIL import Image
 import requests
 import re
 
-colormap = None
+colormap = get_colormap()
 base_dir = "masks/" # default to old set
 size_dict = {
   "masks/": (874, 1164, 3),
