@@ -86,14 +86,11 @@ if __name__ == "__main__":
   o = 2
   m = True
   p = tqdm(total=len(lst))
-  quit = False
   while True:
     x = lst[i]
     p.set_description(x)
     p.n = (i % len(lst)) + 1
     p.refresh()
-    if quit:
-      break
     while True:
       ii = np.array(Image.open(base_imgs+x))
       if not NOSEGS and os.path.isfile(base_masks+x) and m:
@@ -119,9 +116,5 @@ if __name__ == "__main__":
         break
       elif kk == pygame.K_LEFT:
         i += -1
-        break
-      elif kk == pygame.K_ESCAPE or kk == ord('q'):
-        quit = True
-        print("quit")
         break
 
