@@ -7,6 +7,7 @@ from PIL import Image
 
 NOSEGS = os.getenv("NOSEGS") is not None
 IMGS2 = os.getenv("IMGS2") is not None
+IMGSD = os.getenv("IMGSD") is not None
 
 def get_colormap(five=True, base_dir=None):
   f32 = lambda x: (x % 256, x//256 % 256, x//(256*256) % 256)
@@ -48,6 +49,10 @@ if __name__ == "__main__":
   if IMGS2:
     base_imgs = "imgs2/"
     base_masks = "masks2/"
+    win = Window(1928, 1208, halve=True)
+  elif IMGSD:
+    base_imgs = "imgsd/"
+    base_masks = "masksd/"
     win = Window(1928, 1208, halve=True)
   else:
     base_imgs = "imgs/"
@@ -112,4 +117,7 @@ if __name__ == "__main__":
       elif kk == pygame.K_LEFT:
         i += -1
         break
+      elif kk == pygame.K_ESCAPE or kk == ord('q'):
+        sys.exit(0)
+
 
