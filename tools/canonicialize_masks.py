@@ -23,14 +23,14 @@ pr_num = os.getenv("PRNUM")
 if pr_num is not None:
   api_url = "https://api.github.com/repos/commaai/comma10k/pulls/"+pr_num+"/files?per_page=100"
 
-def get_base_dir(filename):
-  match = re.search("^masks\w*/", filename)
+def get_base_dir(filename, pattern="^masks\w*/"):
+  match = re.search(pattern, filename)
   if match is not None:
     return match.group(0)
 
   return None
 
-def get_pr():  
+def get_pr(pattern="^masks\w*/"):
   response = requests.get(api_url)
   file_list = []
 
@@ -38,7 +38,7 @@ def get_pr():
   # Use first file in the PR to determine what dir to use then use this value anywhere the correct folder is needed
   # This assumes all files in the PR are in the same folder so this will break if that's not the case
   global base_dir, colormap
-  base_dir = get_base_dir(response.json()[0]['filename'])
+  base_dir = get_base_dir(response.json()[0]['filename'], pattern=pattern)
   colormap = get_colormap(True, base_dir)
 
   for item in response.json():
@@ -46,7 +46,7 @@ def get_pr():
       file_list.append(item["filename"].replace(base_dir,""))
 
   return file_list
-  
+
 def canon_mask(x):
   segi = fix(Image.open(base_dir + x))
 
