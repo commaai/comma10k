@@ -3,7 +3,7 @@
 [![Completion Status](https://img.shields.io/endpoint?color=%2328B224&label=Completion%20Status&url=https%3A%2F%2Fcellshield.info%2Fgs%3FspreadSheetId%3D1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8%26cellRange%3Di1)](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=0)
 <!-- If you need to change this because the cells have shifted or a new spreadsheet is used, go to https://cellshield.info -->
 
-It's 10,000 PNGs of real driving captured from the comma fleet. It's MIT license, no academic only restrictions or anything.
+It's 10,000 PNGs of real driving captured from the comma fleet, semantically labeled by the public. It's MIT license, no academic only restrictions or anything.
 
 Learn more from [the blog post](https://blog.comma.ai/crowdsourced-segnet-you-can-help/), or on the [comma.ai discord](http://discord.comma.ai) in the #comma-pencil channel.
 
