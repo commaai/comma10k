@@ -58,8 +58,8 @@ If you choose to use an external tool please ensure your color mode is set to 8-
 ## Image Viewing Tools
 
 # TODO:
-1. [comma10kviewer](https://spektor56.github.io/comma10kviewer)
-2. [comma10kreviewer](https://spektor56.github.io/comma10kreviewer)
+1. ~~[comma10kviewer](https://spektor56.github.io/comma10kviewer)~~ #not available At The Moment
+2. [comma10kreviewer](http://harbn.com/comma10kreviewer.html)
 
 ### Beginner Tutorial
 <a href="https://youtube.com/watch?v=RxqG15zOmCk" title="img-labeler Tutorial Video" rel="noopener noreferer"><img src="https://i.ytimg.com/vi/RxqG15zOmCk/maxresdefault.jpg" width="480px"></a>
