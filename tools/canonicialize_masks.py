@@ -38,7 +38,7 @@ def get_pr(pattern="^masks\w*/"):
   # Use first file in the PR to determine what dir to use then use this value anywhere the correct folder is needed
   # This assumes all files in the PR are in the same folder so this will break if that's not the case
   global base_dir, colormap
-  base_dir = get_base_dir(response.json()[0]['filename'], pattern=pattern)
+  base_dir = get_base_dir(response.json()[0]['filename'])
   colormap = get_colormap(True, base_dir)
 
   for item in response.json():
