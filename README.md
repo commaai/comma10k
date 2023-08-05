@@ -38,12 +38,12 @@ Run <pre>./viewer.py</pre> to see them with the mask overlay.
 
 1. Visit the [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=484622533) (request access to edit the spreadsheet) and put your discord username in the "labeler" column for the mask(s) you'll be working on and change the status to "In Progress." If you're new, please start off with just one so we can leave you feedback; this is to prevent you from having to redo them because of something done incorrectly. **UPDATE**: The original imgs set is complete, but a new imgs2 set was added and is still unfinished. There are "e" and "f" versions for the same image number. Check the "imgs2 series" tab in the spreadsheet to see what's available. 
 
-     **UPDATE 2**:  Interior images have been added to the imgsd folder. These are the current priority. Instead of starting from scratch, you can start with [these incomplete masks with mycar mostly done.](https://spektor56.github.io/comma10kreviewer/?index=0&pr=3049) Just click on open editor to have them open in imglabeler.
+     **UPDATE 2**:  Interior images have been added to the imgsd folder. These are the current priority. 
    
 2. Spend some time studying already merged masks to see how things are labeled. You could use the comma10kviewer web tool to easily do this. 
 3. Watch the Beginner Tutorial youtube video below.
 4. Start labelling! Useful label tools:
-   * [img-labeler](https://erikbernheim.github.io/img-labeler/) Only compatible with <s> Chrome </s>  and Edge. Other browsers like Brave, Firefox, and Opera, even if chromium based, don't work properly. **UPDATE:** Chrome is no longer savings the images properly.  Just use Edge.  Must also be used with browser zoom and monitor scaling disabled otherwise it will save with a wrong resolution.
+   * [img-labeler](https://erikbernheim.github.io/img-labeler/) Only compatible with Chrome and Edge. Other browsers like Brave, Firefox, and Opera, even if chromium based, don't work properly. Must be used with browser zoom and monitor scaling disabled otherwise it will save with a wrong resolution. Hardware acceleration has also been identified as a possible cause for img-labaler incorrectly saving masks with anti-aliasing. It can be disabled at chrome://settings/system.   
    **UPDATE**: Img-labeler has been updated to support the new imgs2 set. If, for example, you would like to work on image 00074_e, simply type 74e in the image number box.  Type 74f for image 00074_f.
 
 
