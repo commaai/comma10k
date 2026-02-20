@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os, subprocess
-from PIL import Image
 from collections import defaultdict
 
 def remap_sa_path(x):
@@ -14,25 +13,21 @@ MASK_DIRS = [b"masks/", b"masks2/", b"masksd/"]
 IMG_DIRS  = {b"masks/": b"imgs/", b"masks2/": b"imgs2/", b"masksd/": b"imgsd/"}
 MIN_COMMITS = {b"masks/": 1, b"masks2/": 1, b"masksd/": 0}
 
-# count commits per file by path
-raw = subprocess.check_output("git log --all --name-only --format='' | grep . | sort | uniq -c", shell=True).strip().split(b"\n")
+raw = subprocess.check_output("git rev-list --objects --all | awk '$2' | sort -k2 | uniq -cf1 | sort -rn", shell=True).strip().split(b"\n")
 
 num_commits_map = {}
 al_sets = defaultdict(set)
 num_commits_hists = defaultdict(lambda: defaultdict(int))
 
 for j in raw:
-  jj = j.strip().split(b" ", 1)
-  if len(jj) != 2:
+  jj = j.strip().split(b" ")
+  if len(jj) != 3:
     continue
-  num_commits, mask_path = jj
+  num_commits, _, mask_path = jj
   mask_path = remap_sa_path(mask_path)
   num_commits = int(num_commits)
   mask_dir = next((d for d in MASK_DIRS if mask_path.startswith(d)), None)
   if mask_dir is None or not os.path.isfile(mask_path):
-    continue
-  if Image.open(mask_path).mode not in ('RGB', 'RGBA'):
-    print(f"skipping {mask_path} (mode {Image.open(mask_path).mode})")
     continue
   al_sets[mask_dir].add(mask_path)
   num_commits_hists[mask_dir][num_commits] += 1
