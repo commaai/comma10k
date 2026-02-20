@@ -2,24 +2,30 @@ name: Check Stat (Progress Completion)
 
 on:
   push:
+    branches:
+      - master
     paths:
       - 'masks/**'
+      - 'masks2/**'
+      - 'masksd/**'
       - 'runstat.py'
       - '.github/workflows/check_stat.yml'
   pull_request:
     paths:
       - 'masks/**'
+      - 'masks2/**'
+      - 'masksd/**'
       - 'runstat.py'
       - '.github/workflows/check_stat.yml'
 
 jobs:
   stat:
-  
+
     runs-on: ubuntu-latest
 
     steps:
     - name: Maximize build space
-      uses: easimon/maximize-build-space@67afc2d7662c9d296547435e7605cc57a1df46f3      
+      uses: easimon/maximize-build-space@67afc2d7662c9d296547435e7605cc57a1df46f3
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
@@ -28,6 +34,10 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        pip install pillow
 
     - name: Amount Done
       run: |
